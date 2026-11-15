@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EasyTOPIK с Айс · курс TOPIK II</title>
-<meta name="description" content="Курс подготовки к TOPIK II от Айс (6급, 12 лет в Сеуле): техника всех частей, 3 полных теста и работа над ошибками. Предзапись со скидкой 20% до 15 января 2027.">
+<meta name="description" content="Курс подготовки к TOPIK II от Айс (6 уровень, 12 лет в Сеуле): техника всех частей, 3 полных теста и работа над ошибками. Предзапись со скидкой 20% до 15 января 2027.">
 <meta property="og:title" content="EasyTOPIK с Айс · курс TOPIK II">
 <meta property="og:description" content="Техника всех частей, 3 полных теста и работа над ошибками. Предзапись со скидкой 20%.">
 <meta property="og:image" content="img/poster.jpg">
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif+KR:wght@700;900&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
 <style>
 /* Палитра: нежно-розовый фон, пастельный лимонный акцент и один тёмно-синий для текста и кнопок */
 :root{--ink:#1d2547;--mute:#5f6483;--accent:#3c52c9;--accent-2:#e98fab;--rose:#f9d3df;--rose-ink:#b8456a;--yellow:#fff0a0;--lemon:#fff7c9;--bg:#ffffff;--card:#fff;--line:#ebe7f0;--soft:#fde6ed;
@@ -120,7 +120,6 @@ details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 .final .btns{justify-content:center}
 footer{background:#0f1634;border-top:1px solid rgba(255,255,255,.12);padding:34px 0 50px;color:rgba(255,255,255,.68);font-size:14px;text-align:center}
 footer a{color:#dfe3ff}
-footer .hang{color:var(--yellow)}
 @media (max-width:900px){
  section{padding-block:52px}
  .g3,.g4{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}
@@ -141,23 +140,14 @@ footer .hang{color:var(--yellow)}
  .video{border-width:4px;border-radius:18px}
 }
 /* корейский декор: крупные буквы-водяные знаки и полоса с волнистым узором */
-.hg{position:absolute;font-family:"Noto Serif KR",serif;font-weight:900;line-height:1;pointer-events:none;user-select:none;z-index:0}
-.hang{display:block;margin-bottom:8px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.2em}
 /* фон: падающие цветки сакуры */
 .blossoms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .blossoms .f{position:absolute;top:-70px;opacity:0;will-change:transform,opacity;animation:sk linear infinite}
-.words{position:fixed;inset:0;z-index:25;pointer-events:none;overflow:hidden}
-.words .t{position:absolute;top:-50px;padding:8px 10px;pointer-events:auto;cursor:pointer;user-select:none;-webkit-user-select:none;font-family:"Noto Serif KR",serif;font-weight:700;color:#f08fb0;white-space:nowrap;letter-spacing:.08em;opacity:0;will-change:transform,opacity;animation:sk linear infinite}
-.words .t:hover{color:#e0709b}
-.bloomable{cursor:pointer;-webkit-tap-highlight-color:transparent}
-.fx{position:fixed;left:0;top:0;z-index:40;pointer-events:none;will-change:transform,opacity}
-.fx svg{display:block;width:100%;height:100%}
-#bloomfx{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden}
 .blossoms svg{display:block;width:100%;height:100%;animation:sw ease-in-out infinite alternate;will-change:transform}
 @keyframes sk{0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}8%{opacity:var(--o,.7)}92%{opacity:var(--o,.7)}100%{opacity:0;transform:translate3d(var(--dx,60px),calc(100vh + 120px),0) rotate(var(--rot,300deg))}}
 @keyframes sw{from{transform:translateX(-14px) rotate(-14deg)}to{transform:translateX(14px) rotate(14deg)}}
 main,footer{position:relative;z-index:1}
-@media (prefers-reduced-motion:reduce){.blossoms .f,.blossoms svg,.words .t{animation:none}.blossoms .f,.words .t{opacity:var(--o,.6);top:var(--top,20vh)}}
+@media (prefers-reduced-motion:reduce){.blossoms .f,.blossoms svg{animation:none}.blossoms .f{opacity:var(--o,.6);top:var(--top,20vh)}}
 /* кейсы учеников и сводка курса */
 .case{display:flex;flex-direction:column;gap:12px;text-align:center}
 .case__who{font-weight:800;font-size:17px}
@@ -183,6 +173,7 @@ main,footer{position:relative;z-index:1}
 .car__btn:hover{background:#2f43b5}
 .car__btn[disabled]{opacity:.35;cursor:default}
 .car__prev{left:-22px}.car__next{right:-22px}
+@media (max-width:1180px){.car__prev{left:-8px}.car__next{right:-8px}}
 .dots{display:flex;justify-content:center;flex-wrap:wrap;gap:4px;margin-top:6px}
 .dots button{width:28px;height:28px;border:0;background:transparent;padding:0;cursor:pointer;display:grid;place-items:center}
 .dots button::before{content:"";width:10px;height:10px;border-radius:99px;background:#d7dcf3;transition:width .2s,background .2s}
@@ -273,8 +264,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  </defs>
 </svg>
 <div class="blossoms" id="blossoms" aria-hidden="true"></div>
-<div class="words" id="words"></div>
-<div id="bloomfx" aria-hidden="true"></div>
 
 
 <header>
@@ -290,7 +279,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- HERO: видео сверху -->
 <section class="hero">
  <div class="wrap">
-  <span class="kicker">한국어능력시험 · TOPIK II · 합격!</span>
+  <span class="kicker">Курс подготовки к TOPIK II</span>
   <h1>Узнай систему, по которой я готовлю к <em>TOPIK II</em> с 3 по 6 уровень</h1>
   <p class="lead">Техника всех частей, 3 полных теста и работа над ошибками. Темп под дату твоего экзамена: 14 дней, месяц или 2 месяца.</p>
   <!-- ЗАМЕНИТЬ: video/intro.mp4 на своё видео «Зачем тебе TOPIK и почему со мной», img/poster.jpg на обложку -->
@@ -301,7 +290,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
    <a class="btn btn--y" href="#prices" data-open="form">Предзапись со скидкой 20%</a>
   </div>
   <div class="stats">
-   <div class="stat"><b>6급</b><span>мой результат TOPIK</span></div>
+   <div class="stat"><b>6 ур.</b><span>мой уровень TOPIK</span></div>
    <div class="stat"><b>12 лет</b><span>живу в Сеуле</span></div>
    <div class="stat"><b>104</b><span>задания разбираем по типам</span></div>
    <div class="stat"><b>3</b><span>полных теста по регламенту</span></div>
@@ -312,7 +301,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- Результаты: кейсы учеников (карточки из Instagram, лица закрыты) -->
 <section class="band" id="results">
  <div class="wrap">
-  <span class="hang center" aria-hidden="true">결과</span>
   <h2 class="h2 center">Результаты моих учеников</h2>
   <p class="lead center">Было и стало: сертификаты TOPIK II до подготовки и после. Листай вправо и нажимай на карточку, чтобы рассмотреть крупнее.</p>
   <div class="car">
@@ -342,7 +330,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
    <span class="kicker">Привет, я Айс</span>
    <h2 class="h2" style="margin-top:14px">Айс, ваш гид по TOPIK II</h2>
    <p>До 11 класса я жила в селе, где из развлечений были книги и корейские сериалы. Потом поступила на бюджет в Бишкеке, а по стипендии <b>GKS</b> переехала в Корею.</p>
-   <p><b>12 лет живу в Сеуле</b>, работаю в IT и сдала TOPIK на <b>6급</b>. Готовлю к TOPIK II с 3 по 6 уровень. Меня читают <b>24,9 тыс.</b> человек в <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a>. Со мной уже готовились <span class="ph">[число учеников]</span>.</p>
+   <p><b>12 лет живу в Сеуле</b>, работаю в IT и сдала TOPIK на <b>6 уровень</b>. Готовлю к TOPIK II с 3 по 6 уровень. Меня читают <b>24,9 тыс.</b> человек в <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a>. Со мной уже готовились <span class="ph">[число учеников]</span>.</p>
    <p>Я собрала курс, где всё разложено по шагам: что делать, сколько минут на это тратить и как себя проверить.</p>
   </div>
  </div>
@@ -351,7 +339,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- Программа -->
 <section class="band band--y" id="program">
  <div class="wrap">
-  <span class="hang center" aria-hidden="true">프로그램</span>
   <h2 class="h2 center">Программа курса</h2>
   <div class="sum"><span>🎓 10 уроков и 2 встречи</span><span>🧩 104 задания по типам</span><span>🧪 3 полных теста</span><span>🗂️ Notion на год</span></div>
   <div class="acc">
@@ -370,7 +357,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- Тарифы -->
 <section id="prices">
  <div class="wrap">
-  <span class="hang center" aria-hidden="true">가격</span>
   <h2 class="h2 center">Тарифы</h2>
   <p class="lead center">Программа и материалы одинаковые во всех тарифах, отличается поддержка. Цены в долларах.</p>
   <div class="tf">
@@ -410,7 +396,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- FAQ -->
 <section class="band" id="faq">
  <div class="wrap">
-  <span class="hang center" aria-hidden="true">질문</span>
   <h2 class="h2 center">Вопросы и ответы</h2>
   <div class="acc">
    <details><summary>Какой уровень нужен, чтобы начать?</summary><div>Курс для TOPIK II, цель от 3 до 6 уровня. Если ты ни разу не сдавал(а) TOPIK, но база корейского уже есть, курс подойдёт. С нуля сначала нужна база языка. Не уверен(а) в уровне? Напиши мне, отвечу честно.</div></details>
@@ -427,7 +412,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <section class="dark">
  <div class="wrap">
   <div class="final">
-   <h2 class="h2">파이팅! Готов(а) сдать TOPIK II на уровень выше?</h2>
+   <h2 class="h2">Готов(а) сдать TOPIK II на уровень выше?</h2>
    <p>Предзапись до 15 января 2027: скидка 20%, видео и PDF с программой.</p>
    <div class="btns">
     <a class="btn tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
@@ -439,7 +424,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 </main>
 
 <footer>
- <span class="hang" aria-hidden="true" style="text-align:center;margin-bottom:10px">한국어능력시험 · TOPIK · 합격</span>
  <div class="wrap">
   <p>© 2026 EasyTOPIK · Айс · <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a> · <a href="https://t.me/icekrmb" rel="noopener">Telegram-канал</a> · <a href="https://t.me/ice_krmb" rel="noopener">Telegram</a> · <a href="https://wa.me/821027481605" rel="noopener">WhatsApp</a></p>
   <!-- ЗАМЕНИТЬ: ссылки на оферту и политику конфиденциальности -->
@@ -485,9 +469,9 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
     <label class="fl">WhatsApp<input name="phone" type="tel" autocomplete="tel" maxlength="30" placeholder="+82 ..."></label>
     <p class="full" style="font-size:13px;color:var(--mute);margin-top:-6px">Укажи хотя бы один способ связи: Telegram или WhatsApp.</p>
     <label class="fl">Уровень TOPIK сейчас *
-     <select name="level_now" required><option value="">Выбери</option><option>Пока без TOPIK</option><option>1–2급</option><option>3급</option><option>4급</option><option>5급</option><option>6급</option></select></label>
+     <select name="level_now" required><option value="">Выбери</option><option>Пока без TOPIK</option><option value="1–2급">1–2 уровень</option><option value="3급">3 уровень</option><option value="4급">4 уровень</option><option value="5급">5 уровень</option><option value="6급">6 уровень</option></select></label>
     <label class="fl">Какой уровень нужен
-     <select name="level_need"><option value="">Выбери</option><option>3급</option><option>4급</option><option>5급</option><option>6급</option><option>Пока не знаю</option></select></label>
+     <select name="level_need"><option value="">Выбери</option><option value="3급">3 уровень</option><option value="4급">4 уровень</option><option value="5급">5 уровень</option><option value="6급">6 уровень</option><option>Пока не знаю</option></select></label>
     <div class="fl full">Зачем тебе TOPIK <small>можно выбрать несколько</small>
      <div class="chips">
       <label><input type="checkbox" name="why" value="Поступление в университет"><span>Поступление в университет</span></label>
@@ -688,11 +672,9 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 })();
 </script>
 <script>
-/* Фон: цветки сакуры, равномерно по всей ширине и высоте. Слова кликабельны: при нажатии вокруг слова расцветает ещё больше цветков */
+/* Фон: цветки сакуры, равномерно по всей ширине и высоте */
 (function () {
   var box = document.getElementById("blossoms");
-  var wordsBox = document.getElementById("words");
-  var fx = document.getElementById("bloomfx");
   if (!box) return;
   var narrow = window.innerWidth < 700;
   var n = narrow ? 10 : 22;
@@ -724,64 +706,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
     box.appendChild(f);
   }
 
-  /* вспышка цветков вокруг точки */
-  function burst(cx, cy) {
-    var count = narrow ? 14 : 20;
-    var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-    for (var k = 0; k < count; k++) {
-      var el = document.createElement("span");
-      el.className = "fx";
-      var size = 16 + Math.random() * 22;
-      el.style.width = el.style.height = size.toFixed(0) + "px";
-      el.innerHTML = flower();
-      fx.appendChild(el);
-      var ang = Math.random() * Math.PI * 2, dist = 50 + Math.random() * 110;
-      var dx = Math.cos(ang) * dist, dy = Math.sin(ang) * dist;
-      var rot = (Math.random() - 0.5) * 540;
-      var x0 = cx - size / 2, y0 = cy - size / 2;
-      var anim = reduce
-        ? el.animate([{ transform: "translate(" + (x0 + dx) + "px," + (y0 + dy) + "px)", opacity: 0 }, { opacity: 1, offset: .3 }, { transform: "translate(" + (x0 + dx) + "px," + (y0 + dy) + "px)", opacity: 0 }], { duration: 900 })
-        : el.animate([
-          { transform: "translate(" + x0 + "px," + y0 + "px) scale(.2) rotate(0deg)", opacity: 0 },
-          { transform: "translate(" + (x0 + dx * .7) + "px," + (y0 + dy * .7) + "px) scale(1) rotate(" + (rot * .5) + "deg)", opacity: 1, offset: .25 },
-          { transform: "translate(" + (x0 + dx) + "px," + (y0 + dy + 40) + "px) scale(1) rotate(" + rot + "deg)", opacity: 1, offset: .65 },
-          { transform: "translate(" + (x0 + dx * 1.1) + "px," + (y0 + dy + 150 + Math.random() * 80) + "px) scale(.9) rotate(" + (rot * 1.3) + "deg)", opacity: 0 }
-        ], { duration: 1500 + Math.random() * 900, easing: "cubic-bezier(.2,.7,.3,1)" });
-      anim.onfinish = (function (e) { return function () { e.remove(); }; })(el);
-    }
-  }
-  function bloomAt(node, ev) {
-    var r = node.getBoundingClientRect();
-    burst(r.left + r.width / 2, r.top + r.height / 2);
-  }
-
-  /* плывущие слова (кликабельные) */
-  var words = ["한국어능력시험", "TOPIK", "합격!", "한국어능력시험"];
-  var wc = narrow ? 2 : words.length;
-  for (var j = 0; j < wc; j++) {
-    var t = document.createElement("span");
-    t.className = "t";
-    t.textContent = words[j];
-    var dur2 = 52 + rnd() * 10;
-    t.style.left = ((j + 0.2 + rnd() * 0.5) / wc * 86 + 4).toFixed(1) + "%";
-    t.style.setProperty("--o", "0.36");
-    t.style.setProperty("--dx", ((rnd() - 0.5) * 100).toFixed(0) + "px");
-    t.style.setProperty("--rot", ((rnd() - 0.5) * 30).toFixed(0) + "deg");
-    t.style.setProperty("--top", ((j + 0.3) / wc * 80).toFixed(0) + "vh");
-    t.style.fontSize = (17 + rnd() * 9).toFixed(0) + "px";
-    t.style.animationDuration = dur2.toFixed(1) + "s";
-    t.style.animationDelay = (-(j / wc) * dur2).toFixed(1) + "s";
-    t.addEventListener("click", function (e) { e.preventDefault(); bloomAt(this, e); });
-    wordsBox.appendChild(t);
-  }
-
-  /* корейские надписи на сайте тоже нажимаются */
-  var marked = document.querySelectorAll(".hang, .hg, .hero .kicker, footer .hang");
-  for (var m = 0; m < marked.length; m++) {
-    marked[m].classList.add("bloomable");
-    marked[m].addEventListener("click", function (e) { bloomAt(this, e); });
-  }
-  /* цветки и плывущие слова видны только выше блока «Почему балл не растёт»: ниже границы они обрезаются и пропадают */
+  /* цветки видны только выше блока «Почему балл не растёт»: ниже границы они обрезаются и пропадают */
   var why = document.getElementById("results");
   var cutTick = false;
   function cutLayers() {
@@ -791,7 +716,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
     top = Math.max(0, Math.min(h, top));
     var clip = "inset(0 0 " + (h - top) + "px 0)";
     var vis = top <= 0 ? "hidden" : "visible";
-    [box, wordsBox].forEach(function (b) { b.style.clipPath = clip; b.style.webkitClipPath = clip; b.style.visibility = vis; });
+    box.style.clipPath = clip; box.style.webkitClipPath = clip; box.style.visibility = vis;
   }
   function onCut() { if (!cutTick) { cutTick = true; requestAnimationFrame(cutLayers); } }
   window.addEventListener("scroll", onCut, { passive: true });
