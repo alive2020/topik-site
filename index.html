@@ -8,13 +8,13 @@
 <meta property="og:title" content="EasyTOPIK с Айс · курс TOPIK II">
 <meta property="og:description" content="Техника всех частей, 3 полных теста и работа над ошибками. Предзапись со скидкой 20%.">
 <meta property="og:image" content="img/poster.jpg">
-<meta name="theme-color" content="#fff6f9">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif+KR:wght@700;900&amp;display=swap">
 <style>
 /* Палитра: нежно-розовый фон, пастельный лимонный акцент и один тёмно-синий для текста и кнопок */
-:root{--ink:#1d2547;--mute:#5f6483;--accent:#1d2547;--accent-2:#e98fab;--rose:#f9d3df;--rose-ink:#b8456a;--yellow:#fff0a0;--lemon:#fff7c9;--bg:#fff6f9;--card:#fff;--line:#f4d9e2;--soft:#fde6ed;
+:root{--ink:#1d2547;--mute:#5f6483;--accent:#1d2547;--accent-2:#e98fab;--rose:#f9d3df;--rose-ink:#b8456a;--yellow:#fff0a0;--lemon:#fff7c9;--bg:#ffffff;--card:#fff;--line:#ebe7f0;--soft:#fde6ed;
 --font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -40,7 +40,7 @@ section{padding-block:72px}
 .btn--sm{min-height:44px;padding:0 18px;font-size:14px;border-radius:12px}
 .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 /* шапка */
-header{position:sticky;top:0;z-index:20;background:rgba(255,246,249,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
 .logo{font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.02em}.logo span{color:var(--rose-ink)}
 nav{display:flex;gap:22px;font-weight:600;font-size:15px;color:var(--mute)}
@@ -88,9 +88,10 @@ details[open] summary::after{transform:rotate(45deg)}
 details > div{padding:0 0 20px;color:var(--mute);font-size:15.5px}
 details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 /* предзапись */
-.pre{position:relative;overflow:hidden;background:linear-gradient(135deg,#fde6ee,#f9cddb);border-radius:28px;padding:44px 36px;text-align:center;border:1px solid #f3bccd}
+.pre{position:relative;overflow:hidden;background:var(--accent);color:#fff;border-radius:28px;padding:44px 36px;text-align:center}
 .pre>*{position:relative;z-index:1}
-.pre .h2{font-size:clamp(26px,4vw,40px)}
+.pre .h2{font-size:clamp(26px,4vw,40px);color:#fff}
+.pre .btn--out{border-color:#fff;color:#fff}.pre .btn--out:hover{box-shadow:0 10px 24px rgba(0,0,0,.3)}
 .pre ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:20px;font-weight:600}
 .pre .btns{justify-content:center}
 /* тарифы */
@@ -109,11 +110,11 @@ details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 .t li.no{color:#a39aaa;text-decoration:line-through}.t li.no::before{content:"–";color:#a39aaa}
 .t .seats{font-size:13px;color:var(--mute);margin-bottom:12px}
 /* низ */
-.final{position:relative;overflow:hidden;background:var(--accent);color:#fff;border-radius:30px;padding:54px 30px;text-align:center}
+.final{position:relative;overflow:hidden;background:#fff;color:var(--ink);border:2px solid var(--accent);border-radius:30px;padding:54px 30px;text-align:center}
 .final>*{position:relative;z-index:1}
-.final .h2{color:#fff}.final p{opacity:.92;margin-top:12px;font-size:18px}
+.final .h2{color:var(--ink)}.final p{color:var(--mute);margin-top:12px;font-size:18px}
 .final .btns{justify-content:center}
-.final .btn--out{border-color:#fff;color:#fff}
+.final .btn--out{border-color:var(--accent);color:var(--accent)}
 footer{padding:34px 0 50px;color:var(--mute);font-size:14px;text-align:center}
 footer a{color:var(--rose-ink)}
 @media (max-width:900px){
@@ -132,14 +133,15 @@ footer a{color:var(--rose-ink)}
 }
 /* корейский декор: крупные буквы-водяные знаки и полоса с волнистым узором */
 .hg{position:absolute;font-family:"Noto Serif KR",serif;font-weight:900;line-height:1;pointer-events:none;user-select:none;z-index:0}
-.hero .hg1{left:-1%;top:28px;font-size:clamp(110px,19vw,240px);color:var(--rose);transform:rotate(-8deg);opacity:.85}
-.hero .hg2{right:-1%;bottom:70px;font-size:clamp(80px,13vw,170px);color:var(--yellow);transform:rotate(6deg)}
-.pre .hg{right:-10px;bottom:-30px;font-size:170px;color:#fff;opacity:.55;transform:rotate(-6deg)}
-.final .hg{left:14px;top:-14px;font-size:150px;color:var(--yellow);opacity:.12;transform:rotate(-6deg)}
-.final .hg.b{left:auto;right:14px;top:auto;bottom:-24px;color:var(--rose);opacity:.14;transform:rotate(6deg)}
+.hero .hg1,.hero .hg2{display:none;font-size:60px;color:var(--rose)}
+.hero .hg2{color:#f3dd6b}
+@media (min-width:1260px){
+ .hero .hg1,.hero .hg2{display:block;top:380px}
+ .hero .hg1{right:calc(50% + 470px);transform:rotate(-8deg)}
+ .hero .hg2{left:calc(50% + 470px);transform:rotate(7deg)}
+}
 .orn{height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cg fill='%23fff6f9' stroke='%23e98fab' stroke-width='1.4'%3E%3Ccircle cx='0' cy='11' r='11'/%3E%3Ccircle cx='44' cy='11' r='11'/%3E%3Ccircle cx='22' cy='22' r='20'/%3E%3Ccircle cx='22' cy='22' r='14'/%3E%3Ccircle cx='22' cy='22' r='8'/%3E%3C/g%3E%3C/svg%3E") repeat-x center/44px 22px;opacity:.9}
-.hang{display:block;margin-top:6px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;color:var(--rose-ink);letter-spacing:.2em}
-@media (max-width:600px){.hero .hg2{display:none}.pre .hg{font-size:120px}.final .hg{font-size:110px}}
+.hang{display:block;margin-bottom:8px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;color:var(--rose-ink);letter-spacing:.2em}
 /* окна: выбор мессенджера и анкета предзаписи */
 dialog.dlg{border:0;padding:0;border-radius:24px;width:min(780px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(20,24,70,.35)}
 dialog.dlg::backdrop{background:rgba(28,32,64,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -152,7 +154,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 .dlg h3{font-size:clamp(22px,3.6vw,30px);line-height:1.15;font-weight:800;letter-spacing:-.02em;text-align:center;text-wrap:balance;padding-inline:24px}
 .dlg .dsub{text-align:center;color:var(--mute);margin-top:10px;font-size:15px}
 .ch{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
-.ch__c{border:1.5px solid var(--line);background:var(--bg);border-radius:20px;padding:20px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.ch__c{border:1.5px solid var(--line);background:#fbfbfd;border-radius:20px;padding:20px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
 .ch__t{font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px}
 .ch__t i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px}
 .ch__t svg{width:20px;height:20px}
@@ -200,7 +202,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  <div class="wrap bar">
   <a class="logo" href="#top">Easy<span>TOPIK</span> с Айс</a>
   <nav aria-label="Разделы"><a href="#system">Система</a><a href="#program">Программа</a><a href="#results">Результаты</a><a href="#prices">Тарифы</a><a href="#faq">Вопросы</a></nav>
-  <a class="btn btn--y btn--sm" href="#pre" data-open="form">Предзапись −20%</a>
+  <a class="btn btn--sm" href="#pre" data-open="form">Предзапись −20%</a>
  </div>
 </header>
 
@@ -208,7 +210,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 
 <!-- HERO: видео сверху -->
 <section class="hero">
- <span class="hg hg1" aria-hidden="true">합격</span><span class="hg hg2" aria-hidden="true">한국어</span>
+ <span class="hg hg1" aria-hidden="true">합격</span><span class="hg hg2" aria-hidden="true">한글</span>
  <div class="wrap">
   <span class="kicker">한국어 · TOPIK II · 합격!</span>
   <h1>Узнай систему, по которой я готовлю к <em>TOPIK II</em> с 3 по 6 уровень</h1>
@@ -247,6 +249,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- Система -->
 <section id="system">
  <div class="wrap">
+  <span class="hang" aria-hidden="true">세 단계</span>
   <h2 class="h2">Три шага курса</h2>
   <p class="lead">Сначала вся техника, потом полный тест, потом пробники с разбором. Тест до техники ничего не покажет.</p>
   <div class="grid g3">
@@ -290,6 +293,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- Результаты -->
 <section class="band" id="results">
  <div class="wrap">
+  <span class="hang center" aria-hidden="true">결과</span>
   <h2 class="h2 center">Результаты учеников</h2>
   <p class="lead center">С чего начинали, что поменяли в подготовке и что получилось на экзамене.</p>
   <!-- ЗАМЕНИТЬ: 3 карточки ниже на настоящие истории и скриншоты результатов, только с согласия учеников -->
@@ -319,6 +323,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- Программа -->
 <section class="band" id="program">
  <div class="wrap">
+  <span class="hang center" aria-hidden="true">프로그램</span>
   <h2 class="h2 center">Программа курса</h2>
   <div class="acc">
    <details><summary>Встреча 1 и урок 1: как устроен TOPIK II</summary><div><ul><li>Запись эфира «Где теряют баллы», анкета: уровень, дата экзамена и цель</li><li>Что ждёт в зале, 7 правил, которые берегут баллы</li><li>Два трека: A с целью от 150 баллов, B с целью от 190</li></ul></div></details>
@@ -337,15 +342,14 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <section id="pre">
  <div class="wrap">
   <div class="pre">
-   <span class="hg" aria-hidden="true">20%</span>
    <span class="kicker" style="background:#fff;color:var(--rose-ink)">Предзапись открыта</span>
    <h2 class="h2" style="margin-top:14px">Оставь заявку до 15 января 2027 и получи скидку 20%</h2>
    <ul><li>✓ место на потоке раньше остальных</li><li>✓ самая низкая цена</li><li>✓ видео и PDF с программой</li><li>✓ личный ответ в WhatsApp или Telegram</li></ul>
    <div class="btns">
-    <a class="btn" href="#pre" data-open="form">Заполнить заявку</a>
+    <a class="btn btn--y" href="#pre" data-open="form">Заполнить заявку</a>
     <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на предзапись TOPIK II со скидкой 20%. Проконсультируйте, пожалуйста.">Задать вопрос в мессенджере</a>
    </div>
-   <p style="margin-top:16px;font-size:14px;color:var(--mute)">Заявка бесплатная и ни к чему не обязывает. Оплату я предлагаю только после знакомства.</p>
+   <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.72)">Заявка бесплатная и ни к чему не обязывает. Оплату я предлагаю только после знакомства.</p>
   </div>
  </div>
 </section>
@@ -353,6 +357,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- Тарифы -->
 <section class="band" id="prices">
  <div class="wrap">
+  <span class="hang center" aria-hidden="true">가격</span>
   <h2 class="h2 center">Тарифы</h2>
   <p class="lead center">Программа и материалы одинаковые во всех тарифах, отличается поддержка. Цены в долларах.</p>
   <div class="tf">
@@ -393,6 +398,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <!-- FAQ -->
 <section id="faq">
  <div class="wrap">
+  <span class="hang center" aria-hidden="true">질문</span>
   <h2 class="h2 center">Вопросы и ответы</h2>
   <div class="acc">
    <details><summary>Какой уровень нужен, чтобы начать?</summary><div>Курс для TOPIK II, цель от 3 до 6 уровня. Если ты ни разу не сдавал(а) TOPIK, но база корейского уже есть, курс подойдёт. С нуля сначала нужна база языка. Не уверен(а) в уровне? Напиши мне, отвечу честно.</div></details>
@@ -411,12 +417,11 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <section style="padding-top:0">
  <div class="wrap">
   <div class="final">
-   <span class="hg" aria-hidden="true">합격</span><span class="hg b" aria-hidden="true">화이팅</span>
    <h2 class="h2">파이팅! Готов(а) сдать TOPIK II на уровень выше?</h2>
    <p>Предзапись до 15 января 2027: скидка 20%, видео и PDF с программой.</p>
    <div class="btns">
-    <a class="btn btn--y tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
-    <a class="btn btn--out" href="#pre" data-open="form">Предзапись −20%</a>
+    <a class="btn tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
+    <a class="btn btn--y" href="#pre" data-open="form">Предзапись −20%</a>
    </div>
   </div>
  </div>
