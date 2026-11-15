@@ -262,7 +262,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 </section>
 
 <!-- Почему балл не растёт -->
-<section class="band">
+<section class="band" id="why">
  <div class="wrap">
   <h2 class="h2 center">Почему балл не растёт, хотя ты занимаешься</h2>
   <p class="lead center">Чаще всего дело не в языке. Баллы дают за решённые задания конкретного типа за конкретное время.</p>
@@ -740,6 +740,22 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
     marked[m].classList.add("bloomable");
     marked[m].addEventListener("click", function (e) { bloomAt(this, e); });
   }
+  /* цветки и плывущие слова видны только выше блока «Почему балл не растёт»: ниже границы они обрезаются и пропадают */
+  var why = document.getElementById("why");
+  var cutTick = false;
+  function cutLayers() {
+    cutTick = false;
+    var h = window.innerHeight;
+    var top = why ? why.getBoundingClientRect().top : h;
+    top = Math.max(0, Math.min(h, top));
+    var clip = "inset(0 0 " + (h - top) + "px 0)";
+    var vis = top <= 0 ? "hidden" : "visible";
+    [box, wordsBox].forEach(function (b) { b.style.clipPath = clip; b.style.webkitClipPath = clip; b.style.visibility = vis; });
+  }
+  function onCut() { if (!cutTick) { cutTick = true; requestAnimationFrame(cutLayers); } }
+  window.addEventListener("scroll", onCut, { passive: true });
+  window.addEventListener("resize", onCut);
+  cutLayers();
 })();
 </script>
 </body>
