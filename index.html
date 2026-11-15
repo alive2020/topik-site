@@ -66,7 +66,7 @@ nav a{text-decoration:none}nav a:hover{color:var(--rose-ink)}
 .card p{color:var(--mute);margin-top:10px;font-size:15.5px}
 .ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--soft);font-size:22px;margin-bottom:14px}
 .num{font-weight:800;color:var(--rose-ink);font-size:14px;letter-spacing:.08em}
-.band{background:#fff}
+.band{background:transparent}
 .insight{margin-top:28px;border-radius:22px;background:var(--accent);color:#fff;padding:28px 30px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 .insight b{color:var(--yellow);font-size:44px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
 .insight p{flex:1 1 320px;font-size:17px}
@@ -142,6 +142,15 @@ footer a{color:var(--rose-ink)}
 }
 .orn{height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cg fill='%23fff6f9' stroke='%23e98fab' stroke-width='1.4'%3E%3Ccircle cx='0' cy='11' r='11'/%3E%3Ccircle cx='44' cy='11' r='11'/%3E%3Ccircle cx='22' cy='22' r='20'/%3E%3Ccircle cx='22' cy='22' r='14'/%3E%3Ccircle cx='22' cy='22' r='8'/%3E%3C/g%3E%3C/svg%3E") repeat-x center/44px 22px;opacity:.9}
 .hang{display:block;margin-bottom:8px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;color:var(--rose-ink);letter-spacing:.2em}
+/* фон: падающие цветки сакуры */
+.blossoms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blossoms .f{position:absolute;top:-70px;opacity:0;will-change:transform,opacity;animation:sk linear infinite}
+.blossoms .t{font-family:"Noto Serif KR",serif;font-weight:700;font-size:20px;color:#f4a9c1;white-space:nowrap;letter-spacing:.08em;top:-50px}
+.blossoms svg{display:block;width:100%;height:100%;animation:sw ease-in-out infinite alternate;will-change:transform}
+@keyframes sk{0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}8%{opacity:var(--o,.7)}92%{opacity:var(--o,.7)}100%{opacity:0;transform:translate3d(var(--dx,60px),calc(100vh + 120px),0) rotate(var(--rot,300deg))}}
+@keyframes sw{from{transform:translateX(-14px) rotate(-14deg)}to{transform:translateX(14px) rotate(14deg)}}
+main,footer{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.blossoms .f,.blossoms svg{animation:none}.blossoms .f{opacity:var(--o,.6);top:var(--top,20vh)}}
 /* окна: выбор мессенджера и анкета предзаписи */
 dialog.dlg{border:0;padding:0;border-radius:24px;width:min(780px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(20,24,70,.35)}
 dialog.dlg::backdrop{background:rgba(28,32,64,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -197,6 +206,21 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+ <defs>
+  <symbol id="sakura" viewBox="-50 -50 100 100">
+   <g>
+    <g id="petal"><path d="M0,-4 C-20,-18 -24,-40 -9,-47 L0,-39 L9,-47 C24,-40 20,-18 0,-4Z" fill="#f9c8d8"/><path d="M0,-6 C-8,-16 -9,-30 -3,-38 L0,-34 L3,-38 C9,-30 8,-16 0,-6Z" fill="#fde9ef"/></g>
+    <use href="#petal" transform="rotate(72)"/><use href="#petal" transform="rotate(144)"/><use href="#petal" transform="rotate(216)"/><use href="#petal" transform="rotate(288)"/>
+    <circle r="6" fill="#f2a0bb"/>
+    <g stroke="#e98fab" stroke-width="1.6" stroke-linecap="round"><path d="M0,0 L0,-15"/><path d="M0,0 L14,-5"/><path d="M0,0 L9,12"/><path d="M0,0 L-9,12"/><path d="M0,0 L-14,-5"/></g>
+    <g fill="#fff0a0"><circle cy="-16" r="2.6"/><circle cx="15" cy="-5" r="2.6"/><circle cx="9" cy="13" r="2.6"/><circle cx="-9" cy="13" r="2.6"/><circle cx="-15" cy="-5" r="2.6"/></g>
+   </g>
+  </symbol>
+ </defs>
+</svg>
+<div class="blossoms" id="blossoms" aria-hidden="true"></div>
+
 
 <header>
  <div class="wrap bar">
@@ -212,7 +236,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <section class="hero">
  <span class="hg hg1" aria-hidden="true">합격</span><span class="hg hg2" aria-hidden="true">한글</span>
  <div class="wrap">
-  <span class="kicker">한국어 · TOPIK II · 합격!</span>
+  <span class="kicker">한국어능력시험 · TOPIK II · 합격!</span>
   <h1>Узнай систему, по которой я готовлю к <em>TOPIK II</em> с 3 по 6 уровень</h1>
   <p class="lead">Техника всех частей, 3 полных теста и работа над ошибками. Темп под дату твоего экзамена: 14 дней, месяц или 2 месяца.</p>
   <!-- ЗАМЕНИТЬ: video/intro.mp4 на своё видео «Зачем тебе TOPIK и почему со мной», img/poster.jpg на обложку -->
@@ -430,7 +454,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 
 <div class="orn" aria-hidden="true"></div>
 <footer>
- <span class="hang" aria-hidden="true" style="text-align:center;margin-bottom:10px">한국어 · TOPIK · 합격</span>
+ <span class="hang" aria-hidden="true" style="text-align:center;margin-bottom:10px">한국어능력시험 · TOPIK · 합격</span>
  <div class="wrap">
   <p>© 2026 EasyTOPIK · Айс · <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a> · <a href="https://t.me/icekrmb" rel="noopener">Telegram-канал</a> · <a href="https://t.me/ice_krmb" rel="noopener">Telegram</a> · <a href="https://wa.me/821027481605" rel="noopener">WhatsApp</a></p>
   <!-- ЗАМЕНИТЬ: ссылки на оферту и политику конфиденциальности -->
@@ -616,6 +640,48 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
         send.disabled = false; send.textContent = "Отправить заявку";
       });
   });
+})();
+</script>
+<script>
+/* фон: цветки сакуры. Число и скорость небольшие, чтобы не отвлекать от текста */
+(function () {
+  var box = document.getElementById("blossoms");
+  if (!box) return;
+  var n = window.innerWidth < 700 ? 9 : 16;
+  var words = ["한국어능력시험", "TOPIK", "합격!", "한국어능력시험"];
+  var seed = 11;
+  function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+  for (var i = 0; i < n; i++) {
+    var f = document.createElement("span");
+    f.className = "f";
+    var size = 20 + rnd() * 34;
+    f.style.width = f.style.height = size.toFixed(0) + "px";
+    f.style.left = (rnd() * 96).toFixed(1) + "%";
+    f.style.setProperty("--o", (0.5 + rnd() * 0.35).toFixed(2));
+    f.style.setProperty("--dx", ((rnd() - 0.35) * 160).toFixed(0) + "px");
+    f.style.setProperty("--rot", ((rnd() > 0.5 ? 1 : -1) * (180 + rnd() * 260)).toFixed(0) + "deg");
+    f.style.setProperty("--top", (rnd() * 90).toFixed(0) + "vh");
+    f.style.animationDuration = (22 + rnd() * 26).toFixed(1) + "s";
+    f.style.animationDelay = (-rnd() * 40).toFixed(1) + "s";
+    if (size < 30) f.style.filter = "blur(.6px)";
+    f.innerHTML = '<svg viewBox="-50 -50 100 100" style="animation-duration:' + (3.5 + rnd() * 3).toFixed(1) + 's"><use href="#sakura"/></svg>';
+    box.appendChild(f);
+  }
+  /* бледные надписи среди цветков */
+  for (var j = 0; j < (window.innerWidth < 700 ? 2 : words.length); j++) {
+    var t = document.createElement("span");
+    t.className = "f t";
+    t.textContent = words[j];
+    t.style.left = (8 + rnd() * 78).toFixed(1) + "%";
+    t.style.setProperty("--o", "0.4");
+    t.style.setProperty("--dx", ((rnd() - 0.5) * 120).toFixed(0) + "px");
+    t.style.setProperty("--rot", ((rnd() - 0.5) * 40).toFixed(0) + "deg");
+    t.style.setProperty("--top", (rnd() * 80).toFixed(0) + "vh");
+    t.style.fontSize = (16 + rnd() * 12).toFixed(0) + "px";
+    t.style.animationDuration = (34 + rnd() * 20).toFixed(1) + "s";
+    t.style.animationDelay = (-rnd() * 50).toFixed(1) + "s";
+    box.appendChild(t);
+  }
 })();
 </script>
 </body>
