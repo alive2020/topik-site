@@ -83,7 +83,7 @@ nav a{text-decoration:none}nav a:hover{color:var(--rose-ink)}
 details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:0 22px}
 summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:700;font-size:17px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:26px;color:var(--rose-ink);line-height:1;transition:transform .2s}
+summary::after{content:"+";font-size:26px;color:var(--accent);line-height:1;transition:transform .2s}
 details[open] summary::after{transform:rotate(45deg)}
 details > div{padding:0 0 20px;color:var(--mute);font-size:15.5px}
 details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
@@ -106,7 +106,7 @@ details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 .pre-price{display:inline-block;margin-top:10px;background:var(--yellow);color:var(--ink);font-weight:700;font-size:14px;padding:5px 12px;border-radius:10px}
 .t ul{margin:22px 0;display:grid;gap:10px;font-size:15px;flex:1}
 .t li{padding-left:26px;position:relative}
-.t li::before{content:"✓";position:absolute;left:0;color:var(--rose-ink);font-weight:800}
+.t li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
 .t li.no{color:#a39aaa;text-decoration:line-through}.t li.no::before{content:"–";color:#a39aaa}
 .t .seats{font-size:13px;color:var(--mute);margin-bottom:12px}
 /* низ */
@@ -119,7 +119,7 @@ details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 .dark .btn:hover{box-shadow:0 10px 26px rgba(0,0,0,.45)}
 .final .btns{justify-content:center}
 footer{background:#0f1634;border-top:1px solid rgba(255,255,255,.12);padding:34px 0 50px;color:rgba(255,255,255,.68);font-size:14px;text-align:center}
-footer a{color:#f9c2d4}
+footer a{color:#dfe3ff}
 footer .hang{color:var(--yellow)}
 @media (max-width:900px){
  section{padding-block:52px}
@@ -142,7 +142,7 @@ footer .hang{color:var(--yellow)}
 }
 /* корейский декор: крупные буквы-водяные знаки и полоса с волнистым узором */
 .hg{position:absolute;font-family:"Noto Serif KR",serif;font-weight:900;line-height:1;pointer-events:none;user-select:none;z-index:0}
-.hang{display:block;margin-bottom:8px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;color:var(--rose-ink);letter-spacing:.2em}
+.hang{display:block;margin-bottom:8px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.2em}
 /* фон: падающие цветки сакуры */
 .blossoms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .blossoms .f{position:absolute;top:-70px;opacity:0;will-change:transform,opacity;animation:sk linear infinite}
