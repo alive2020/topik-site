@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EasyTOPIK с Айс · курс TOPIK II</title>
+<meta name="description" content="Курс подготовки к TOPIK II от Айс (6급, 12 лет в Сеуле): техника всех частей, 3 полных теста и работа над ошибками. Предзапись со скидкой 20% до 15 января 2027.">
+<meta property="og:title" content="EasyTOPIK с Айс · курс TOPIK II">
+<meta property="og:description" content="Техника всех частей, 3 полных теста и работа над ошибками. Предзапись со скидкой 20%.">
+<meta property="og:image" content="img/poster.jpg">
+<meta name="theme-color" content="#4f5bd5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* Палитра: индиго как основной, лаванда и жёлтый как акценты, светлый фон */
+:root{--ink:#1c2040;--mute:#5d6285;--accent:#4f5bd5;--accent-2:#7c6df0;--yellow:#ffd86b;--bg:#f5f6ff;--card:#fff;--line:#e2e4f6;--soft:#eceeff;--green:#2f9e6e;
+--font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,h4,p,ul,ol{margin:0}ul,ol{padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding-block:72px}
+.h2{font-size:clamp(28px,4.4vw,44px);line-height:1.1;font-weight:800;letter-spacing:-.025em;text-wrap:balance}
+.lead{color:var(--mute);font-size:18px;max-width:720px;margin-top:14px}
+.center{text-align:center}.center .lead{margin-inline:auto}
+.ph{background:#fff1a8;color:#000;border-radius:5px;padding:0 4px;font-weight:700}
+.kicker{display:inline-block;padding:6px 14px;border-radius:99px;background:var(--soft);color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.02em}
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 28px;border-radius:14px;border:2px solid var(--accent);background:var(--accent);color:#fff;font:700 16px var(--font);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(79,91,213,.28)}
+.btn--out{background:transparent;color:var(--accent)}
+.btn--y{background:var(--yellow);border-color:var(--yellow);color:#2a2300}
+.btn--y:hover{box-shadow:0 10px 24px rgba(255,200,60,.4)}
+.btn--sm{min-height:44px;padding:0 18px;font-size:14px;border-radius:12px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+/* шапка */
+header{position:sticky;top:0;z-index:20;background:rgba(245,246,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.logo{font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.02em}.logo span{color:var(--accent)}
+nav{display:flex;gap:22px;font-weight:600;font-size:15px;color:var(--mute)}
+nav a{text-decoration:none}nav a:hover{color:var(--accent)}
+/* hero */
+.hero{padding-block:48px 56px;text-align:center}
+.hero h1{font-size:clamp(32px,5.6vw,60px);line-height:1.05;font-weight:800;letter-spacing:-.03em;margin:18px auto 0;max-width:900px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{margin-inline:auto}
+.video{margin:34px auto 0;max-width:880px;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(40,48,120,.22);border:6px solid #fff}
+.video video{width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
+.vcap{font-size:14px;color:var(--mute);margin-top:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 12px}
+.stat b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
+.stat span{font-size:14px;color:var(--mute)}
+/* карточки */
+.grid{display:grid;gap:16px;margin-top:36px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.card h3{font-size:20px;line-height:1.2;font-weight:800;letter-spacing:-.02em}
+.card p{color:var(--mute);margin-top:10px;font-size:15.5px}
+.ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--soft);font-size:22px;margin-bottom:14px}
+.num{font-weight:800;color:var(--accent-2);font-size:14px;letter-spacing:.08em}
+.band{background:#fff}
+.insight{margin-top:28px;border-radius:22px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;padding:28px 30px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.insight b{font-size:44px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.insight p{flex:1 1 320px;font-size:17px}
+.bonus{background:linear-gradient(180deg,#fffdf0,#fff7cf);border:1px solid #f1e3a0}
+.bonus .tag{display:inline-block;background:var(--yellow);color:#2a2300;font-weight:800;font-size:12px;padding:4px 10px;border-radius:99px;margin-bottom:12px}
+/* результаты */
+.res h3{font-size:18px}.res .from{color:var(--mute);font-size:14px;margin-top:10px}.res .to{color:var(--green);font-weight:800;margin-top:4px}
+/* обо мне */
+.about{display:grid;grid-template-columns:360px 1fr;gap:40px;align-items:center}
+.about img{border-radius:26px;aspect-ratio:3/4;object-fit:cover;width:100%;box-shadow:0 20px 50px rgba(40,48,120,.2)}
+.about p{color:var(--mute);margin-top:14px;font-size:17px}.about p b{color:var(--ink)}
+/* аккордеон */
+.acc{max-width:860px;margin:34px auto 0;display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:0 22px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:700;font-size:17px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;color:var(--accent);line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details > div{padding:0 0 20px;color:var(--mute);font-size:15.5px}
+details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
+/* предзапись */
+.pre{background:linear-gradient(135deg,#fff3c4,#ffe9a0);border-radius:28px;padding:44px 36px;text-align:center;border:1px solid #f0dc8a}
+.pre .h2{font-size:clamp(26px,4vw,40px)}
+.pre ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:20px;font-weight:600}
+.pre .btns{justify-content:center}
+/* тарифы */
+.tf{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;align-items:stretch}
+.t{position:relative;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px 26px;display:flex;flex-direction:column}
+.t--pop{border:2px solid var(--accent);box-shadow:0 20px 50px rgba(79,91,213,.2)}
+.t .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-weight:800;font-size:13px;padding:6px 14px;border-radius:99px;white-space:nowrap}
+.t h3{font-size:26px;font-weight:800;letter-spacing:-.025em}
+.t .sub{color:var(--mute);margin-top:6px;font-size:15px;min-height:46px}
+.price{margin-top:18px}.price b{font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.price s{color:var(--mute);margin-left:8px;font-size:18px}
+.pre-price{display:inline-block;margin-top:10px;background:#fff3c4;color:#4a3b00;font-weight:700;font-size:14px;padding:5px 12px;border-radius:10px}
+.t ul{margin:22px 0;display:grid;gap:10px;font-size:15px;flex:1}
+.t li{padding-left:26px;position:relative}
+.t li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.t li.no{color:#9a9eb8;text-decoration:line-through}.t li.no::before{content:"–";color:#9a9eb8}
+.t .seats{font-size:13px;color:var(--mute);margin-bottom:12px}
+/* низ */
+.final{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:30px;padding:54px 30px;text-align:center}
+.final .h2{color:#fff}.final p{opacity:.92;margin-top:12px;font-size:18px}
+.final .btns{justify-content:center}
+.final .btn--out{border-color:#fff;color:#fff}
+footer{padding:34px 0 50px;color:var(--mute);font-size:14px;text-align:center}
+footer a{color:var(--accent)}
+@media (max-width:900px){
+ section{padding-block:52px}
+ .g3,.g4,.tf{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}
+ .about{grid-template-columns:1fr}.about img{max-width:360px}
+ nav{display:none}
+}
+@media (max-width:600px){
+ .wrap{width:min(1120px,100% - 32px)}
+ .g3,.g4,.tf{grid-template-columns:1fr}
+ .stats{grid-template-columns:1fr 1fr}
+ .pre{padding:34px 20px}.final{padding:40px 20px}
+ .btn{width:100%}.btn--sm{width:auto}
+ .video{border-width:4px;border-radius:18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="#top">Easy<span>TOPIK</span> с Айс</a>
+  <nav aria-label="Разделы"><a href="#system">Система</a><a href="#program">Программа</a><a href="#results">Результаты</a><a href="#prices">Тарифы</a><a href="#faq">Вопросы</a></nav>
+  <a class="btn btn--y btn--sm" href="#pre">Предзапись −20%</a>
+ </div>
+</header>
+
+<main id="top">
+
+<!-- HERO: видео сверху -->
+<section class="hero">
+ <div class="wrap">
+  <span class="kicker">한국어 · TOPIK II · 합격!</span>
+  <h1>Узнай систему, по которой я готовлю к <em>TOPIK II</em> с 3 по 6 уровень</h1>
+  <p class="lead">Техника всех частей, 3 полных теста и работа над ошибками. Темп под дату твоего экзамена: 14 дней, месяц или 2 месяца.</p>
+  <!-- ЗАМЕНИТЬ: video/intro.mp4 на своё видео «Зачем тебе TOPIK и почему со мной», img/poster.jpg на обложку -->
+  <div class="video"><video controls playsinline preload="metadata" poster="img/poster.jpg"><source src="video/intro.mp4" type="video/mp4"></video></div>
+  <p class="vcap">Видео: зачем тебе TOPIK и почему со мной <span class="ph">[временное видео, замените на своё]</span></p>
+  <div class="btns" style="justify-content:center">
+   <a class="btn tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
+   <a class="btn btn--y" href="#pre">Предзапись со скидкой 20%</a>
+  </div>
+  <div class="stats">
+   <div class="stat"><b>6급</b><span>мой результат TOPIK</span></div>
+   <div class="stat"><b>12 лет</b><span>живу в Сеуле</span></div>
+   <div class="stat"><b>104</b><span>задания разбираем по типам</span></div>
+   <div class="stat"><b>3</b><span>полных теста по регламенту</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- Почему балл не растёт -->
+<section class="band">
+ <div class="wrap">
+  <h2 class="h2 center">Почему балл не растёт, хотя ты занимаешься</h2>
+  <p class="lead center">Чаще всего дело не в языке. Баллы дают за решённые задания конкретного типа за конкретное время.</p>
+  <div class="grid g4">
+   <div class="card"><div class="ico">🔁</div><h3>Тест за тестом</h3><p>Решаешь новые варианты, а ошибки не разбираешь. Балл стоит на месте.</p></div>
+   <div class="card"><div class="ico">🧭</div><h3>Тест до техники</h3><p>Сразу пишешь полный тест, не зная приёмов. Он показывает не уровень, а незнание формата.</p></div>
+   <div class="card"><div class="ico">⏱️</div><h3>Не хватает времени</h3><p>Длинные тексты в конце читаешь уставшей головой и оставляешь вопросы пустыми.</p></div>
+   <div class="card"><div class="ico">✍️</div><h3>Письмо без каркаса</h3><p>Задание 54 стоит 50 баллов, а пишешь его без плана и без проверки.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- Система -->
+<section id="system">
+ <div class="wrap">
+  <h2 class="h2">Три шага курса</h2>
+  <p class="lead">Сначала вся техника, потом полный тест, потом пробники с разбором. Тест до техники ничего не покажет.</p>
+  <div class="grid g3">
+   <div class="card"><span class="num">ШАГ 1</span><h3 style="margin-top:8px">Техника</h3><p>Уроки 1–8: аудирование 듣기, чтение 읽기 и письмо 쓰기. Для каждого типа задания алгоритм, ловушки и время.</p></div>
+   <div class="card"><span class="num">ШАГ 2</span><h3 style="margin-top:8px">Полный тест и цель</h3><p>3 часа дома по настоящему регламенту. На уроке 9 считаем баллы, находим три слабых места и ставим цель.</p></div>
+   <div class="card"><span class="num">ШАГ 3</span><h3 style="margin-top:8px">Пробники и ошибки</h3><p>Два пробника и работа над ошибками по трекеру. План на последние 7 дней перед экзаменом.</p></div>
+  </div>
+  <div class="insight"><b>53 + 54 = 80</b><p>Столько баллов дают два задания письма, а между 4 и 5 уровнем всего 40. Поэтому быстрее всего уровень растёт через письмо, и в курсе на него три отдельных урока.</p></div>
+ </div>
+</section>
+
+<!-- Что получишь -->
+<section class="band">
+ <div class="wrap">
+  <h2 class="h2 center">Что ты получишь на курсе</h2>
+  <div class="grid g4">
+   <div class="card"><div class="ico">🎓</div><h3>10 уроков и 2 встречи</h3><p>Живые занятия 2 раза в неделю, все остаются в записи.</p></div>
+   <div class="card"><div class="ico">🧩</div><h3>104 задания по типам</h3><p>Аудирование 50, чтение 50 и письмо 51–54: алгоритм на каждый тип.</p></div>
+   <div class="card"><div class="ico">📝</div><h3>Каркасы для письма</h3><p>Каркасы 53 и 54, банк фраз и связок, правила бланка 원고지.</p></div>
+   <div class="card"><div class="ico">🧪</div><h3>3 полных теста</h3><p>Экзамены прошлых лет, без выдуманных вариантов. Пишешь дома, 3 часа.</p></div>
+   <div class="card"><div class="ico">🔍</div><h3>Трекер ошибок</h3><p>Тетрадь студента: видно, какие ошибки у тебя повторяются.</p></div>
+   <div class="card"><div class="ico">📅</div><h3>План под твой экзамен</h3><p>Программа с датами для темпа 14 дней, месяц или 2 месяца.</p></div>
+   <div class="card"><div class="ico">🗂️</div><h3>Notion на год</h3><p>Все материалы, задания и шаблоны, доступ на 12 месяцев.</p></div>
+   <div class="card"><div class="ico">✏️</div><h3>Проверка письма</h3><p>В тарифах «Письмо+» и «С Айс» я лично проверяю твои эссе 53 и 54.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- Бонусы -->
+<section>
+ <div class="wrap">
+  <h2 class="h2">Бонусы ко всем тарифам</h2>
+  <div class="grid g3">
+   <div class="card bonus"><span class="tag">БОНУС 1</span><h3>Словарь к пробникам</h3><p>Слова каждого задания с переводом на русский. Открываешь после того, как тест написан.</p></div>
+   <div class="card bonus"><span class="tag">БОНУС 2</span><h3>110 советов из 5 книг</h3><p>Советы из книг по подготовке к TOPIK, с официального сайта и от сдавших на 6 уровень. Прямо в уроках, с источником.</p></div>
+   <div class="card bonus"><span class="tag">БОНУС 3</span><h3>Бланки и чек-листы</h3><p>Бланки 원고지 для печати, шкала самооценки письма и чек-лист дня экзамена.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- Результаты -->
+<section class="band" id="results">
+ <div class="wrap">
+  <h2 class="h2 center">Результаты учеников</h2>
+  <p class="lead center">С чего начинали, что поменяли в подготовке и что получилось на экзамене.</p>
+  <!-- ЗАМЕНИТЬ: 3 карточки ниже на настоящие истории и скриншоты результатов, только с согласия учеников -->
+  <div class="grid g3">
+   <div class="card res"><h3><span class="ph">[Имя, зачем TOPIK]</span></h3><p class="from">Было: <span class="ph">[уровень и балл]</span></p><p class="to">Стало: <span class="ph">[уровень и балл]</span></p></div>
+   <div class="card res"><h3><span class="ph">[Имя, зачем TOPIK]</span></h3><p class="from">Было: <span class="ph">[уровень и балл]</span></p><p class="to">Стало: <span class="ph">[уровень и балл]</span></p></div>
+   <div class="card res"><h3><span class="ph">[Имя, зачем TOPIK]</span></h3><p class="from">Было: <span class="ph">[уровень и балл]</span></p><p class="to">Стало: <span class="ph">[уровень и балл]</span></p></div>
+  </div>
+ </div>
+</section>
+
+<!-- Обо мне -->
+<section>
+ <div class="wrap about">
+  <!-- ЗАМЕНИТЬ: img/aisulu.jpg на своё фото -->
+  <img src="img/aisulu.jpg" alt="Айс (временное фото)" width="600" height="800" loading="lazy">
+  <div>
+   <span class="kicker">Привет, я Айс</span>
+   <h2 class="h2" style="margin-top:14px">Айс, ваш гид по TOPIK II</h2>
+   <p>До 11 класса я жила в селе, где из развлечений были книги и корейские сериалы. Потом поступила на бюджет в Бишкеке, а по стипендии <b>GKS</b> переехала в Корею.</p>
+   <p><b>12 лет живу в Сеуле</b>, работаю в IT и сдала TOPIK на <b>6급</b>. Готовлю к TOPIK II с 3 по 6 уровень. Меня читают <b>24,9 тыс.</b> человек в <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a>. Со мной уже готовились <span class="ph">[число учеников]</span>.</p>
+   <p>Я собрала курс, где всё разложено по шагам: что делать, сколько минут на это тратить и как себя проверить.</p>
+  </div>
+ </div>
+</section>
+
+<!-- Программа -->
+<section class="band" id="program">
+ <div class="wrap">
+  <h2 class="h2 center">Программа курса</h2>
+  <div class="acc">
+   <details><summary>Встреча 1 и урок 1: как устроен TOPIK II</summary><div><ul><li>Запись эфира «Где теряют баллы», анкета: уровень, дата экзамена и цель</li><li>Что ждёт в зале, 7 правил, которые берегут баллы</li><li>Два трека: A с целью от 150 баллов, B с целью от 190</li></ul></div></details>
+   <details><summary>Урок 2: аудирование 1–20</summary><div><ul><li>Ты всегда на один вопрос впереди: варианты читаешь, пока диктор не начал</li><li>5 типов заданий и система пометок на буклете</li></ul></div></details>
+   <details><summary>Урок 3: аудирование 21–50</summary><div><ul><li>Два прослушивания: в первом ловишь мысль, во втором цифры и детали</li><li>8 формулировок вопросов и правило «после поворота»</li></ul></div></details>
+   <details><summary>Урок 4: чтение 1–24</summary><div><ul><li>Таймер и контрольные точки, приёмы по типам заданий</li><li>Банк синонимичной грамматики</li></ul></div></details>
+   <details><summary>Урок 5: чтение 25–50</summary><div><ul><li>Тренировка «с конца», чтобы длинные тексты доставались свежей голове</li><li>Правило последнего предложения</li></ul></div></details>
+   <details><summary>Уроки 6–8: письмо 51–54</summary><div><ul><li>51 и 52: пишем кусок, который стыкуется с текстом, 2 минуты на пропуск</li><li>53: каркас из 4 блоков, банки фраз, регламент 10 минут</li><li>54: один подвопрос, один абзац, план на полях за 3 минуты</li></ul></div></details>
+   <details><summary>Урок 9: полный тест, уровень и цель</summary><div><ul><li>Полный тест дома, 3 часа по регламенту</li><li>Считаем баллы, находим три слабых места, ставим реалистичную цель</li></ul></div></details>
+   <details><summary>Урок 10 и встреча 2: пробники и работа над ошибками</summary><div><ul><li>Метод в 4 шага и 6 причин ошибок</li><li>План последних 7 дней и чек-лист дня экзамена</li></ul></div></details>
+  </div>
+ </div>
+</section>
+
+<!-- Предзапись -->
+<section id="pre">
+ <div class="wrap">
+  <div class="pre">
+   <span class="kicker" style="background:#fff">Предзапись открыта</span>
+   <h2 class="h2" style="margin-top:14px">Оставь заявку до 15 января 2027 и получи скидку 20%</h2>
+   <ul><li>✓ место на потоке раньше остальных</li><li>✓ самая низкая цена</li><li>✓ видео и PDF с программой</li><li>✓ личный ответ в Telegram</li></ul>
+   <div class="btns">
+    <!-- ЗАМЕНИТЬ: ссылку формы на публичную ссылку формы Notion (Share form) -->
+    <a class="btn" href="https://www.notion.so/419a23c54bba81f795dac448b87552ad?v=419a23c54bba8119bedc000c3485671f" rel="noopener">Заполнить заявку</a>
+    <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на предзапись TOPIK II со скидкой 20%. Проконсультируйте, пожалуйста.">Написать в Telegram</a>
+   </div>
+   <p style="margin-top:16px;font-size:14px;color:#6b5a10">Заявка бесплатная и ни к чему не обязывает. Оплату я предлагаю только после знакомства.</p>
+  </div>
+ </div>
+</section>
+
+<!-- Тарифы -->
+<section class="band" id="prices">
+ <div class="wrap">
+  <h2 class="h2 center">Тарифы</h2>
+  <p class="lead center">Программа и материалы одинаковые во всех тарифах, отличается поддержка. Цены в долларах.</p>
+  <div class="tf">
+   <div class="t">
+    <h3>Доступ</h3><p class="sub">Занимаешься сам и сверяешь себя с образцами.</p>
+    <div class="price"><b>$290</b></div><span class="pre-price">Предзапись: $232</span>
+    <ul>
+     <li>10 уроков и 2 встречи, записи</li><li>Notion на год</li><li>3 полных теста</li><li>Трекер ошибок, словарь, 110 советов</li>
+     <li class="no">Проверка эссе 53 и 54</li><li class="no">Личные занятия со мной</li>
+    </ul>
+    <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II, тариф «Доступ». Проконсультируйте, пожалуйста.">Выбрать «Доступ»</a>
+   </div>
+   <div class="t t--pop">
+    <span class="badge">Выбирают чаще</span>
+    <h3>Письмо+</h3><p class="sub">Всё из «Доступа» и моя проверка твоего письма.</p>
+    <div class="price"><b>$490</b></div><span class="pre-price">Предзапись: $392</span>
+    <ul>
+     <li>Всё из тарифа «Доступ»</li><li>Проверка эссе 53 и 54 с правками</li><li>Разбор полного теста и трёх слабых мест</li><li>Цель и план до экзамена вместе со мной</li><li>Связь со мной между занятиями</li>
+     <li class="no">Личные занятия со мной</li>
+    </ul>
+    <p class="seats">Мест: 30</p>
+    <a class="btn tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II, тариф «Письмо+». Проконсультируйте, пожалуйста.">Выбрать «Письмо+»</a>
+   </div>
+   <div class="t">
+    <h3>С Айс</h3><p class="sub">Со мной лично по твоему плану.</p>
+    <div class="price"><b>$1 200</b></div><span class="pre-price">Предзапись: $960</span>
+    <ul>
+     <li>Всё из тарифа «Письмо+»</li><li>Личные занятия со мной: <span class="ph">[24 занятия]</span></li><li>Проверка всех твоих письменных работ</li><li>Приоритетные ответы</li>
+    </ul>
+    <p class="seats">Мест: 7</p>
+    <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II, тариф «С Айс». Проконсультируйте, пожалуйста.">Выбрать «С Айс»</a>
+   </div>
+  </div>
+  <p class="center" style="margin-top:22px;color:var(--mute);font-size:14px">Скидка 20% действует для заявок до 15 января 2027 включительно. Возврата после оплаты нет: материалы открываются сразу, все вопросы решаем до оплаты.</p>
+ </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+ <div class="wrap">
+  <h2 class="h2 center">Вопросы и ответы</h2>
+  <div class="acc">
+   <details><summary>Какой уровень нужен, чтобы начать?</summary><div>Курс для TOPIK II, цель от 3 до 6 уровня. Если ты ни разу не сдавал(а) TOPIK, но база корейского уже есть, курс подойдёт. С нуля сначала нужна база языка. Не уверен(а) в уровне? Напиши мне, отвечу честно.</div></details>
+   <details><summary>Когда старт потока?</summary><div>Старт: <span class="ph">[дата старта потока]</span>. Живые уроки по вторникам и пятницам в 20:00 по Сеулу (14:00 Москва, 16:00 Алматы и Ташкент, 17:00 Бишкек), все занятия остаются в записи.</div></details>
+   <details><summary>Что такое предзапись?</summary><div>Ты оставляешь заявку, я пишу тебе в Telegram, мы знакомимся, и я присылаю видео и PDF с программой. Если всё нравится, предлагаю оплатить курс со скидкой 20%. Заявка не обязывает ни к чему.</div></details>
+   <details><summary>Я не в Корее. Где сдавать TOPIK?</summary><div>Учиться можно из любой страны. Январский TOPIK 2027 проходит только в Корее. В Казахстане, Кыргызстане, Узбекистане и России ближайшая сессия ожидается в апреле 2027, города и сроки регистрации уточняй у местного организатора.</div></details>
+   <details><summary>У меня экзамен позже. Есть смысл?</summary><div>Да. В Notion для каждого темпа есть программа с датами: 14 дней, месяц или 2 месяца. Доступ на год.</div></details>
+   <details><summary>Вы гарантируете результат?</summary><div>Нет. Цель курса: +1 уровень к ближайшему экзамену, и всё в курсе работает на неё. Но экзамен пишешь ты, и результат зависит от твоих часов и честной работы над ошибками.</div></details>
+   <details><summary>Можно вернуть деньги?</summary><div>Нет. После оплаты я сразу открываю материалы, поэтому возврата нет. Зато сначала мы знакомимся, я честно скажу, подходит ли тебе курс, и все сомнения решаем до оплаты.</div></details>
+   <details><summary>Как оплатить?</summary><div>Сначала заявка и знакомство в Telegram, потом я напишу, как оплатить: <span class="ph">[способы оплаты]</span>.</div></details>
+  </div>
+ </div>
+</section>
+
+<!-- Финал -->
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="final">
+   <h2 class="h2">파이팅! Готов(а) сдать TOPIK II на уровень выше?</h2>
+   <p>Предзапись до 15 января 2027: скидка 20%, видео и PDF с программой.</p>
+   <div class="btns">
+    <a class="btn btn--y tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
+    <a class="btn btn--out" href="#pre">Предзапись −20%</a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <p>© 2026 EasyTOPIK · Айс · <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a> · <a href="https://t.me/icekrmb" rel="noopener">Telegram-канал</a> · <a href="https://t.me/ice_krmb" rel="noopener">Личные сообщения</a></p>
+  <!-- ЗАМЕНИТЬ: ссылки на оферту и политику конфиденциальности -->
+  <p style="margin-top:8px"><a href="#">Публичная оферта</a> · <a href="#">Политика конфиденциальности</a></p>
+  <p style="margin-top:8px">Курс опирается на официальные правила TOPIK, но не связан с организатором экзамена.</p>
+ </div>
+</footer>
+
+<script>
+/* Все кнопки с data-msg открывают Telegram с готовым сообщением. Метка «(сайт)» показывает, откуда пришла заявка. */
+(function () {
+  var TG = "https://t.me/ice_krmb?text=";
+  var links = document.querySelectorAll("a.tg[data-msg]");
+  for (var i = 0; i < links.length; i++) {
+    links[i].href = TG + encodeURIComponent("(сайт) " + links[i].getAttribute("data-msg"));
+    links[i].rel = "noopener";
+  }
+})();
+</script>
+</body>
+</html>
