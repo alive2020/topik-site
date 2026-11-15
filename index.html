@@ -127,6 +127,58 @@ footer a{color:var(--accent)}
  .btn{width:100%}.btn--sm{width:auto}
  .video{border-width:4px;border-radius:18px}
 }
+/* окна: выбор мессенджера и анкета предзаписи */
+dialog.dlg{border:0;padding:0;border-radius:24px;width:min(780px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(20,24,70,.35)}
+dialog.dlg::backdrop{background:rgba(28,32,64,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+dialog.dlg[open]{animation:dlgIn .18s ease-out}
+@keyframes dlgIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){dialog.dlg[open]{animation:none}}
+.dlg__in{position:relative;padding:38px 32px 32px}
+.dlg__x{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--mute);font:400 30px/1 var(--font);cursor:pointer}
+.dlg__x:hover{background:var(--soft)}
+.dlg h3{font-size:clamp(22px,3.6vw,30px);line-height:1.15;font-weight:800;letter-spacing:-.02em;text-align:center;text-wrap:balance;padding-inline:24px}
+.dlg .dsub{text-align:center;color:var(--mute);margin-top:10px;font-size:15px}
+.ch{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.ch__c{border:1.5px solid var(--line);background:var(--bg);border-radius:20px;padding:20px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.ch__t{font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px}
+.ch__t i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px}
+.ch__t svg{width:20px;height:20px}
+.ch__wa i{background:#dff6e8;color:#1ea85a}.ch__tg i{background:#e1ebff;color:#2a7de1}
+.ch__qr{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;width:210px;height:210px}
+.ch__qr svg{display:block;width:100%;height:100%}
+.ch__go{font-weight:700;color:var(--accent);text-underline-offset:4px}
+.ch__btn{display:none}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:22px;text-align:left}
+.fg .full{grid-column:1/-1}
+.fl{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px}
+.fl small{font-weight:500;color:var(--mute)}
+.fl input,.fl select,.fl textarea{width:100%;min-height:48px;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:500 16px var(--font)}
+.fl textarea{min-height:84px;resize:vertical}
+.fl input:focus,.fl select:focus,.fl textarea:focus{outline:3px solid var(--accent-2);outline-offset:1px;border-color:var(--accent-2)}
+.fl .bad,.fl input[aria-invalid=true],.fl select[aria-invalid=true]{border-color:#d64545}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:9px 14px;border:1.5px solid var(--line);border-radius:99px;font:600 14px var(--font);background:#fff}
+.chips input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff}
+.chips input:focus-visible+span{outline:3px solid var(--accent-2);outline-offset:2px}
+.cons{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--mute);cursor:pointer}
+.cons input{width:22px;height:22px;margin:1px 0 0;flex:none;accent-color:var(--accent)}
+.cons a{color:var(--accent)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ferr{margin-top:14px;color:#b32d2d;font-weight:600;font-size:14px;min-height:0}
+.fsub{margin-top:18px;width:100%}
+.fok{text-align:center;padding:10px 0}
+.fok .big{font-size:54px;line-height:1}
+.fok .btns{justify-content:center}
+@media (max-width:700px){
+ .dlg__in{padding:34px 18px 22px}
+ .ch{grid-template-columns:1fr;gap:12px;margin-top:20px}
+ .ch__c{padding:16px}
+ .ch__qr,.ch__go{display:none}
+ .ch__btn{display:inline-flex;width:100%}
+ .fg{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -135,7 +187,7 @@ footer a{color:var(--accent)}
  <div class="wrap bar">
   <a class="logo" href="#top">Easy<span>TOPIK</span> с Айс</a>
   <nav aria-label="Разделы"><a href="#system">Система</a><a href="#program">Программа</a><a href="#results">Результаты</a><a href="#prices">Тарифы</a><a href="#faq">Вопросы</a></nav>
-  <a class="btn btn--y btn--sm" href="#pre">Предзапись −20%</a>
+  <a class="btn btn--y btn--sm" href="#pre" data-open="form">Предзапись −20%</a>
  </div>
 </header>
 
@@ -152,7 +204,7 @@ footer a{color:var(--accent)}
   <p class="vcap">Видео: зачем тебе TOPIK и почему со мной <span class="ph">[временное видео, замените на своё]</span></p>
   <div class="btns" style="justify-content:center">
    <a class="btn tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
-   <a class="btn btn--y" href="#pre">Предзапись со скидкой 20%</a>
+   <a class="btn btn--y" href="#pre" data-open="form">Предзапись со скидкой 20%</a>
   </div>
   <div class="stats">
    <div class="stat"><b>6급</b><span>мой результат TOPIK</span></div>
@@ -272,11 +324,10 @@ footer a{color:var(--accent)}
   <div class="pre">
    <span class="kicker" style="background:#fff">Предзапись открыта</span>
    <h2 class="h2" style="margin-top:14px">Оставь заявку до 15 января 2027 и получи скидку 20%</h2>
-   <ul><li>✓ место на потоке раньше остальных</li><li>✓ самая низкая цена</li><li>✓ видео и PDF с программой</li><li>✓ личный ответ в Telegram</li></ul>
+   <ul><li>✓ место на потоке раньше остальных</li><li>✓ самая низкая цена</li><li>✓ видео и PDF с программой</li><li>✓ личный ответ в WhatsApp или Telegram</li></ul>
    <div class="btns">
-    <!-- ЗАМЕНИТЬ: ссылку формы на публичную ссылку формы Notion (Share form) -->
-    <a class="btn" href="https://www.notion.so/419a23c54bba81f795dac448b87552ad?v=419a23c54bba8119bedc000c3485671f" rel="noopener">Заполнить заявку</a>
-    <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на предзапись TOPIK II со скидкой 20%. Проконсультируйте, пожалуйста.">Написать в Telegram</a>
+    <a class="btn" href="#pre" data-open="form">Заполнить заявку</a>
+    <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на предзапись TOPIK II со скидкой 20%. Проконсультируйте, пожалуйста.">Задать вопрос в мессенджере</a>
    </div>
    <p style="margin-top:16px;font-size:14px;color:#6b5a10">Заявка бесплатная и ни к чему не обязывает. Оплату я предлагаю только после знакомства.</p>
   </div>
@@ -330,12 +381,12 @@ footer a{color:var(--accent)}
   <div class="acc">
    <details><summary>Какой уровень нужен, чтобы начать?</summary><div>Курс для TOPIK II, цель от 3 до 6 уровня. Если ты ни разу не сдавал(а) TOPIK, но база корейского уже есть, курс подойдёт. С нуля сначала нужна база языка. Не уверен(а) в уровне? Напиши мне, отвечу честно.</div></details>
    <details><summary>Когда старт потока?</summary><div>Старт: <span class="ph">[дата старта потока]</span>. Живые уроки по вторникам и пятницам в 20:00 по Сеулу (14:00 Москва, 16:00 Алматы и Ташкент, 17:00 Бишкек), все занятия остаются в записи.</div></details>
-   <details><summary>Что такое предзапись?</summary><div>Ты оставляешь заявку, я пишу тебе в Telegram, мы знакомимся, и я присылаю видео и PDF с программой. Если всё нравится, предлагаю оплатить курс со скидкой 20%. Заявка не обязывает ни к чему.</div></details>
+   <details><summary>Что такое предзапись?</summary><div>Ты оставляешь заявку прямо на сайте, я пишу тебе в WhatsApp или Telegram, мы знакомимся, и я присылаю видео и PDF с программой. Если всё нравится, предлагаю оплатить курс со скидкой 20%. Заявка не обязывает ни к чему.</div></details>
    <details><summary>Я не в Корее. Где сдавать TOPIK?</summary><div>Учиться можно из любой страны. Январский TOPIK 2027 проходит только в Корее. В Казахстане, Кыргызстане, Узбекистане и России ближайшая сессия ожидается в апреле 2027, города и сроки регистрации уточняй у местного организатора.</div></details>
    <details><summary>У меня экзамен позже. Есть смысл?</summary><div>Да. В Notion для каждого темпа есть программа с датами: 14 дней, месяц или 2 месяца. Доступ на год.</div></details>
    <details><summary>Вы гарантируете результат?</summary><div>Нет. Цель курса: +1 уровень к ближайшему экзамену, и всё в курсе работает на неё. Но экзамен пишешь ты, и результат зависит от твоих часов и честной работы над ошибками.</div></details>
    <details><summary>Можно вернуть деньги?</summary><div>Нет. После оплаты я сразу открываю материалы, поэтому возврата нет. Зато сначала мы знакомимся, я честно скажу, подходит ли тебе курс, и все сомнения решаем до оплаты.</div></details>
-   <details><summary>Как оплатить?</summary><div>Сначала заявка и знакомство в Telegram, потом я напишу, как оплатить: <span class="ph">[способы оплаты]</span>.</div></details>
+   <details><summary>Как оплатить?</summary><div>Сначала заявка и знакомство в WhatsApp или Telegram, потом я напишу, как оплатить: <span class="ph">[способы оплаты]</span>.</div></details>
   </div>
  </div>
 </section>
@@ -348,7 +399,7 @@ footer a{color:var(--accent)}
    <p>Предзапись до 15 января 2027: скидка 20%, видео и PDF с программой.</p>
    <div class="btns">
     <a class="btn btn--y tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
-    <a class="btn btn--out" href="#pre">Предзапись −20%</a>
+    <a class="btn btn--out" href="#pre" data-open="form">Предзапись −20%</a>
    </div>
   </div>
  </div>
@@ -357,22 +408,190 @@ footer a{color:var(--accent)}
 
 <footer>
  <div class="wrap">
-  <p>© 2026 EasyTOPIK · Айс · <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a> · <a href="https://t.me/icekrmb" rel="noopener">Telegram-канал</a> · <a href="https://t.me/ice_krmb" rel="noopener">Личные сообщения</a></p>
+  <p>© 2026 EasyTOPIK · Айс · <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a> · <a href="https://t.me/icekrmb" rel="noopener">Telegram-канал</a> · <a href="https://t.me/ice_krmb" rel="noopener">Telegram</a> · <a href="https://wa.me/821027481605" rel="noopener">WhatsApp</a></p>
   <!-- ЗАМЕНИТЬ: ссылки на оферту и политику конфиденциальности -->
   <p style="margin-top:8px"><a href="#">Публичная оферта</a> · <a href="#">Политика конфиденциальности</a></p>
   <p style="margin-top:8px">Курс опирается на официальные правила TOPIK, но не связан с организатором экзамена.</p>
  </div>
 </footer>
 
+<!-- Окно 1: выбор мессенджера -->
+<dialog class="dlg" id="dlg-chat" aria-labelledby="c-title">
+ <div class="dlg__in">
+  <button class="dlg__x" type="button" data-close aria-label="Закрыть">&times;</button>
+  <h3 id="c-title">Напиши мне, чтобы попасть на курс</h3>
+  <p class="dsub">Выбери удобный мессенджер. На компьютере отсканируй QR-код камерой телефона, на телефоне нажми кнопку.</p>
+  <div class="ch">
+   <div class="ch__c ch__wa">
+    <div class="ch__t"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.3c-.2.6-1.2 1.1-1.7 1.2-.4.1-.9.1-2.9-.6-2.5-1-4.1-3.5-4.2-3.7-.2-.2-1-1.4-1-2.6 0-1.1.6-1.8.9-2.2.2-.3.5-.4.8-.4h.6c.2 0 .5 0 .7.5l.7 1.6c.1.3 0 .4-.1.5l-.4.5c-.1.2-.2.3 0 .5.2.3.6 1 1.3 1.6.8.7 1.6 1 1.8 1.1.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.5.7c.3.1.5.2.6.3 0 .1 0 .6-.2 1.1z"/></svg></i>WhatsApp</div>
+    <div class="ch__qr" id="qr-wa" role="img" aria-label="QR-код для WhatsApp"></div>
+    <a class="ch__go" id="go-wa" href="https://wa.me/821027481605" target="_blank" rel="noopener">Открыть ссылку</a>
+    <a class="btn ch__btn" id="btn-wa" href="https://wa.me/821027481605" target="_blank" rel="noopener">Написать в WhatsApp</a>
+   </div>
+   <div class="ch__c ch__tg">
+    <div class="ch__t"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 3.3 2.7 10.6c-.9.3-.9 1.3 0 1.6l4.7 1.5 1.8 5.6c.2.6.9.8 1.4.4l2.6-2.2 4.6 3.4c.5.4 1.2.1 1.4-.5l3-15.5c.1-.8-.6-1.4-1.4-1.1zM9.5 13.4l8.5-5.2-6.6 6.2-.3 3.2-1.6-4.2z"/></svg></i>Telegram</div>
+    <div class="ch__qr" id="qr-tg" role="img" aria-label="QR-код для Telegram"></div>
+    <a class="ch__go" id="go-tg" href="https://t.me/ice_krmb" target="_blank" rel="noopener">Открыть ссылку</a>
+    <a class="btn ch__btn" id="btn-tg" href="https://t.me/ice_krmb" target="_blank" rel="noopener">Написать в Telegram</a>
+   </div>
+  </div>
+ </div>
+</dialog>
+
+<!-- Окно 2: анкета предзаписи (заявки попадают в таблицу Notion через Worker) -->
+<dialog class="dlg" id="dlg-form" aria-labelledby="f-title">
+ <div class="dlg__in">
+  <button class="dlg__x" type="button" data-close aria-label="Закрыть">&times;</button>
+  <form id="pre-form" novalidate>
+   <h3 id="f-title">Предзапись на курс TOPIK II</h3>
+   <p class="dsub">Скидка 20% для заявок до 15 января 2027. Заявка бесплатная, оплаты сейчас нет. Отвечу в WhatsApp или Telegram.</p>
+   <div class="fg">
+    <label class="fl">Имя *<input name="name" autocomplete="given-name" required maxlength="80"></label>
+    <label class="fl">Страна и город<input name="city" autocomplete="off" maxlength="80" placeholder="например, Сеул"></label>
+    <label class="fl">Telegram<input name="telegram" autocomplete="off" maxlength="60" placeholder="@ник"></label>
+    <label class="fl">WhatsApp<input name="phone" type="tel" autocomplete="tel" maxlength="30" placeholder="+82 ..."></label>
+    <p class="full" style="font-size:13px;color:var(--mute);margin-top:-6px">Укажи хотя бы один способ связи: Telegram или WhatsApp.</p>
+    <label class="fl">Уровень TOPIK сейчас *
+     <select name="level_now" required><option value="">Выбери</option><option>Пока без TOPIK</option><option>1–2급</option><option>3급</option><option>4급</option><option>5급</option><option>6급</option></select></label>
+    <label class="fl">Какой уровень нужен
+     <select name="level_need"><option value="">Выбери</option><option>3급</option><option>4급</option><option>5급</option><option>6급</option><option>Пока не знаю</option></select></label>
+    <div class="fl full">Зачем тебе TOPIK <small>можно выбрать несколько</small>
+     <div class="chips">
+      <label><input type="checkbox" name="why" value="Поступление в университет"><span>Поступление в университет</span></label>
+      <label><input type="checkbox" name="why" value="Стипендия GKS"><span>Стипендия GKS</span></label>
+      <label><input type="checkbox" name="why" value="Виза или ПМЖ"><span>Виза или ПМЖ</span></label>
+      <label><input type="checkbox" name="why" value="Работа в Корее"><span>Работа в Корее</span></label>
+      <label><input type="checkbox" name="why" value="Для себя"><span>Для себя</span></label>
+      <label><input type="checkbox" name="why" value="Другое"><span>Другое</span></label>
+     </div></div>
+    <label class="fl">Дата экзамена<input name="exam" maxlength="80" placeholder="например, апрель 2027 или пока не знаю"></label>
+    <label class="fl">Какой формат интересует
+     <select name="format"><option value="">Выбери</option><option>Самостоятельно</option><option>С проверкой письма</option><option>С Айс лично</option><option>Пока не знаю</option></select></label>
+    <label class="fl full">Что сложнее всего <small>коротко, одним-двумя предложениями</small><textarea name="hard" maxlength="500"></textarea></label>
+    <label class="fl">Откуда узнал(а) обо мне
+     <select name="source"><option value="">Выбери</option><option>Instagram</option><option>Telegram</option><option>Друзья</option><option>Другое</option></select></label>
+    <label class="cons full"><input type="checkbox" name="consent" required><span>Согласен(на) на обработку персональных данных, чтобы Айс связалась со мной по заявке. <a href="#">Политика конфиденциальности</a> *</span></label>
+    <div class="hp" aria-hidden="true"><label>Не заполнять<input name="website" tabindex="-1" autocomplete="off"></label></div>
+   </div>
+   <p class="ferr" id="f-err" role="alert"></p>
+   <button class="btn btn--y fsub" type="submit" id="f-send">Отправить заявку</button>
+  </form>
+  <div class="fok" id="f-ok" hidden>
+   <div class="big" aria-hidden="true">🎉</div>
+   <h3 style="margin-top:12px">Заявка отправлена!</h3>
+   <p class="dsub">Спасибо! Я напишу тебе в течение суток, познакомимся и пришлю видео и PDF с программой. Скидка 20% за тобой.</p>
+   <div class="btns"><a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Я оставил(а) заявку на предзапись на сайте.">Написать мне сразу</a></div>
+  </div>
+ </div>
+</dialog>
+
+<script src="js/qr.js"></script>
 <script>
-/* Все кнопки с data-msg открывают Telegram с готовым сообщением. Метка «(сайт)» показывает, откуда пришла заявка. */
 (function () {
-  var TG = "https://t.me/ice_krmb?text=";
+  /* Контакты и адрес приёма заявок. Метка «(сайт)» в сообщении показывает, откуда пришёл человек. */
+  var WA_NUMBER = "821027481605";
+  var TG_USER = "ice_krmb";
+  var API = "https://icekrmb.com/api/preregister";
+
+  var dChat = document.getElementById("dlg-chat");
+  var dForm = document.getElementById("dlg-form");
+
+  function enc(t) { return encodeURIComponent("(сайт) " + t); }
+  function waUrl(t) { return "https://wa.me/" + WA_NUMBER + "?text=" + enc(t); }
+  function tgUrl(t) { return "https://t.me/" + TG_USER + "?text=" + enc(t); }
+
+  function drawQr(id, url) {
+    var box = document.getElementById(id);
+    try {
+      var q = qrcode(0, "M"); q.addData(url); q.make();
+      box.innerHTML = q.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+    } catch (e) { box.style.display = "none"; }
+  }
+
+  function openDlg(d) {
+    if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
+  }
+  function closeDlg(d) {
+    if (typeof d.close === "function") d.close(); else d.removeAttribute("open");
+  }
+
+  function openChat(msg) {
+    var w = waUrl(msg), t = tgUrl(msg);
+    ["go-wa", "btn-wa"].forEach(function (id) { document.getElementById(id).href = w; });
+    ["go-tg", "btn-tg"].forEach(function (id) { document.getElementById(id).href = t; });
+    drawQr("qr-wa", w); drawQr("qr-tg", t);
+    openDlg(dChat);
+  }
+
+  /* Кнопки «Хочу на курс» и «Выбрать тариф»: окно с двумя мессенджерами */
   var links = document.querySelectorAll("a.tg[data-msg]");
   for (var i = 0; i < links.length; i++) {
-    links[i].href = TG + encodeURIComponent("(сайт) " + links[i].getAttribute("data-msg"));
+    links[i].href = tgUrl(links[i].getAttribute("data-msg"));
     links[i].rel = "noopener";
+    links[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      if (dForm.open) closeDlg(dForm);
+      openChat(this.getAttribute("data-msg"));
+    });
   }
+
+  /* Кнопки предзаписи: анкета прямо на сайте */
+  var openers = document.querySelectorAll("[data-open=form]");
+  for (var k = 0; k < openers.length; k++) {
+    openers[k].addEventListener("click", function (e) { e.preventDefault(); openDlg(dForm); });
+  }
+
+  /* Закрытие: крестик и клик по затемнению */
+  [dChat, dForm].forEach(function (d) {
+    d.addEventListener("click", function (e) { if (e.target === d) closeDlg(d); });
+    d.querySelectorAll("[data-close]").forEach(function (b) { b.addEventListener("click", function () { closeDlg(d); }); });
+  });
+
+  /* Анкета */
+  var form = document.getElementById("pre-form");
+  var err = document.getElementById("f-err");
+  var send = document.getElementById("f-send");
+  var ok = document.getElementById("f-ok");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    err.textContent = "";
+    var f = form.elements;
+    var bad = null;
+    ["name", "level_now"].forEach(function (n) { f[n].removeAttribute("aria-invalid"); });
+    if (!f.name.value.trim()) { f.name.setAttribute("aria-invalid", "true"); bad = bad || f.name; err.textContent = "Напиши, как тебя зовут."; }
+    else if (!f.telegram.value.trim() && !f.phone.value.trim()) { bad = f.telegram; err.textContent = "Укажи Telegram или WhatsApp, чтобы я могла ответить."; }
+    else if (!f.level_now.value) { f.level_now.setAttribute("aria-invalid", "true"); bad = f.level_now; err.textContent = "Выбери, какой у тебя уровень сейчас."; }
+    else if (!f.consent.checked) { bad = f.consent; err.textContent = "Нужно согласие на обработку данных."; }
+    if (bad) { bad.focus(); return; }
+
+    var why = [];
+    form.querySelectorAll("input[name=why]:checked").forEach(function (c) { why.push(c.value); });
+    var data = {
+      name: f.name.value.trim(), city: f.city.value.trim(),
+      telegram: f.telegram.value.trim(), phone: f.phone.value.trim(),
+      level_now: f.level_now.value, level_need: f.level_need.value, why: why,
+      exam: f.exam.value.trim(), format: f.format.value, hard: f.hard.value.trim(),
+      source: f.source.value, consent: true, website: f.website.value,
+      page: location.href
+    };
+    send.disabled = true; send.textContent = "Отправляю…";
+    fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) })
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function () {
+        form.hidden = true; ok.hidden = false;
+        var okTg = ok.querySelector("a.tg");
+        okTg.addEventListener("click", function (ev) { ev.preventDefault(); closeDlg(dForm); openChat(okTg.getAttribute("data-msg")); });
+      })
+      .catch(function () {
+        err.textContent = "Не получилось отправить заявку. Напиши мне напрямую в WhatsApp или Telegram, и я запишу тебя со скидкой.";
+        var a = document.createElement("a"); a.href = "#"; a.textContent = " Открыть мессенджеры";
+        a.style.cssText = "color:var(--accent);font-weight:700";
+        a.addEventListener("click", function (ev) { ev.preventDefault(); closeDlg(dForm); openChat("Хочу на предзапись TOPIK II со скидкой 20%. Не получилось отправить анкету на сайте."); });
+        err.appendChild(a);
+        send.disabled = false; send.textContent = "Отправить заявку";
+      });
+  });
 })();
 </script>
 </body>
