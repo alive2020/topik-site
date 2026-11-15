@@ -111,13 +111,17 @@ details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 .t li.no{color:#a39aaa;text-decoration:line-through}.t li.no::before{content:"–";color:#a39aaa}
 .t .seats{font-size:13px;color:var(--mute);margin-bottom:12px}
 /* низ */
-.final{position:relative;overflow:hidden;background:#fff;color:var(--ink);border:2px solid var(--accent);border-radius:30px;padding:54px 30px;text-align:center}
+/* тёмный низ страницы: финальный призыв и футер */
+.dark{background:#0f1634;color:#fff;padding-block:68px 8px;margin-top:24px}
+.final{position:relative;text-align:center;padding:0 0 46px}
 .final>*{position:relative;z-index:1}
-.final .h2{color:var(--ink)}.final p{color:var(--mute);margin-top:12px;font-size:18px}
+.final .h2{color:#fff}.final p{color:rgba(255,255,255,.78);margin-top:12px;font-size:18px}
+.dark .btn{border-color:rgba(255,255,255,.5)}.dark .btn--y{border-color:#f3e07a}
+.dark .btn:hover{box-shadow:0 10px 26px rgba(0,0,0,.45)}
 .final .btns{justify-content:center}
-.final .btn--out{border-color:var(--accent);color:var(--accent)}
-footer{border-top:1px solid var(--line);padding:34px 0 50px;color:var(--mute);font-size:14px;text-align:center}
-footer a{color:var(--rose-ink)}
+footer{background:#0f1634;border-top:1px solid rgba(255,255,255,.12);padding:34px 0 50px;color:rgba(255,255,255,.68);font-size:14px;text-align:center}
+footer a{color:#f9c2d4}
+footer .hang{color:var(--yellow)}
 @media (max-width:900px){
  section{padding-block:52px}
  .g3,.g4{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}
@@ -399,7 +403,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 </section>
 
 <!-- Финал -->
-<section style="padding-top:0">
+<section class="dark">
  <div class="wrap">
   <div class="final">
    <h2 class="h2">파이팅! Готов(а) сдать TOPIK II на уровень выше?</h2>
