@@ -172,14 +172,29 @@ main,footer{position:relative;z-index:1}
 .sum{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
 .sum span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 16px;font-weight:700;font-size:15px}
 /* лента кейсов и окно с увеличением */
-.slides{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
-.slides li{list-style:none}
+.car{position:relative;margin-top:34px}
+.slides{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:6px 2px 14px;margin:0}
+.slides::-webkit-scrollbar{display:none}
+.slides:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:12px}
+.slides li{list-style:none;flex:0 0 calc((100% - 32px) / 3);scroll-snap-align:start}
 .slide{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;cursor:zoom-in;box-shadow:0 10px 28px rgba(29,37,71,.08);transition:transform .18s,box-shadow .18s}
 .slide:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(60,82,201,.2)}
 .slide img{width:100%;height:auto;display:block}
+.car__btn{position:absolute;top:42%;z-index:2;width:46px;height:46px;border-radius:50%;border:0;background:var(--accent);color:#fff;font:700 26px/1 var(--font);cursor:pointer;box-shadow:0 8px 20px rgba(60,82,201,.35);display:grid;place-items:center;padding:0 0 3px}
+.car__btn:hover{background:#2f43b5}
+.car__btn[disabled]{opacity:.35;cursor:default}
+.car__prev{left:-22px}.car__next{right:-22px}
+.dots{display:flex;justify-content:center;flex-wrap:wrap;gap:4px;margin-top:6px}
+.dots button{width:28px;height:28px;border:0;background:transparent;padding:0;cursor:pointer;display:grid;place-items:center}
+.dots button::before{content:"";width:10px;height:10px;border-radius:99px;background:#d7dcf3;transition:width .2s,background .2s}
+.dots button[aria-current=true]::before{width:26px;background:var(--accent)}
 @media (max-width:900px){
- .slides{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 14px;margin-inline:-16px;-webkit-overflow-scrolling:touch}
- .slides li{flex:0 0 min(72%,300px);scroll-snap-align:center}
+ .slides li{flex-basis:calc((100% - 16px) / 2.15)}
+ .car__btn{display:none}
+}
+@media (max-width:600px){
+ .slides{gap:12px;padding-inline:16px;margin-inline:-16px;scroll-padding-inline:16px}
+ .slides li{flex-basis:72%}
 }
 dialog.dlg.dlg--img{background:#0f1634;width:min(560px,calc(100% - 20px));max-height:calc(100dvh - 20px)}
 dialog.dlg.dlg--img .dlg__in{padding:44px 12px 14px}
@@ -300,8 +315,9 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  <div class="wrap">
   <span class="hang center" aria-hidden="true">결과</span>
   <h2 class="h2 center">Результаты моих учеников</h2>
-  <p class="lead center">Было и стало: сертификаты TOPIK II до подготовки и после. Нажми на карточку, чтобы рассмотреть крупнее.</p>
-  <ul class="slides" id="slides">
+  <p class="lead center">Было и стало: сертификаты TOPIK II до подготовки и после. Листай вправо и нажимай на карточку, чтобы рассмотреть крупнее.</p>
+  <div class="car">
+  <ul class="slides" id="slides" tabindex="0" aria-label="Результаты учеников, листай вправо">
     <li><button class="slide" type="button" data-i="0" aria-label="Открыть кейс 1 крупнее"><img src="img/results/case-1.jpg" alt="Ученица: не могла набрать 3 уровень (106 баллов), после подготовки сдала на 5 уровень (219 баллов)" width="900" height="1125" loading="lazy"></button></li>
     <li><button class="slide" type="button" data-i="1" aria-label="Открыть кейс 2 крупнее"><img src="img/results/case-2.jpg" alt="Ученица: был 4 уровень (175 баллов), после подготовки сдала на 5 уровень (194 балла)" width="900" height="1125" loading="lazy"></button></li>
     <li><button class="slide" type="button" data-i="2" aria-label="Открыть кейс 3 крупнее"><img src="img/results/case-3.jpg" alt="Ученица: не могла преодолеть 3 уровень (264 из 600 в IBT), после подготовки сдала на 4 уровень (318 из 600)" width="900" height="1125" loading="lazy"></button></li>
@@ -311,7 +327,10 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
     <li><button class="slide" type="button" data-i="6" aria-label="Открыть кейс 7 крупнее"><img src="img/results/case-7.jpg" alt="Ученица: через 9 месяцев самостоятельно подготовилась по методике и сдала на 4 уровень (163 балла)" width="900" height="1125" loading="lazy"></button></li>
     <li><button class="slide" type="button" data-i="7" aria-label="Открыть кейс 8 крупнее"><img src="img/results/case-8.jpg" alt="Ученица: не могла набрать 3 уровень (97 баллов), через 2,5 месяца сдала на 3 уровень (122 балла)" width="900" height="1125" loading="lazy"></button></li>
   </ul>
-  <p class="center" style="margin-top:18px;font-size:13px;color:var(--mute)">Результат зависит от часов занятий и честной работы над ошибками.</p>
+  <button class="car__btn car__prev" type="button" id="cprev" aria-label="Назад">‹</button><button class="car__btn car__next" type="button" id="cnext" aria-label="Дальше">›</button>
+  </div>
+  <div class="dots" id="dots"><button type="button" data-d="0" aria-label="Кейс 1"></button><button type="button" data-d="1" aria-label="Кейс 2"></button><button type="button" data-d="2" aria-label="Кейс 3"></button><button type="button" data-d="3" aria-label="Кейс 4"></button><button type="button" data-d="4" aria-label="Кейс 5"></button><button type="button" data-d="5" aria-label="Кейс 6"></button><button type="button" data-d="6" aria-label="Кейс 7"></button><button type="button" data-d="7" aria-label="Кейс 8"></button></div>
+  <p class="center" style="margin-top:12px;font-size:13px;color:var(--mute)">Результат зависит от часов занятий и честной работы над ошибками.</p>
  </div>
 </section>
 
@@ -594,6 +613,37 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
   dImg.addEventListener("click", function (e) { if (e.target === dImg) closeDlg(dImg); });
   dImg.querySelector("[data-close]").addEventListener("click", function () { closeDlg(dImg); });
   dImg.addEventListener("keydown", function (e) { if (e.key === "ArrowLeft") showSlide(cur - 1); if (e.key === "ArrowRight") showSlide(cur + 1); });
+
+  /* лента кейсов: точки, стрелки, прокрутка вправо */
+  var track = document.getElementById("slides");
+  var dots = document.querySelectorAll("#dots button");
+  var cprev = document.getElementById("cprev"), cnext = document.getElementById("cnext");
+  function stepW() { var l = track.children; return l.length > 1 ? l[1].offsetLeft - l[0].offsetLeft : track.clientWidth; }
+  function curIndex() {
+    var max = track.scrollWidth - track.clientWidth;
+    if (track.scrollLeft >= max - 3) return dots.length - 1;
+    return Math.min(dots.length - 1, Math.round(track.scrollLeft / stepW()));
+  }
+  var dotTick = false;
+  function syncDots() {
+    dotTick = false;
+    var i = curIndex();
+    for (var d = 0; d < dots.length; d++) dots[d].setAttribute("aria-current", d === i ? "true" : "false");
+    var max = track.scrollWidth - track.clientWidth;
+    cprev.disabled = track.scrollLeft <= 2;
+    cnext.disabled = track.scrollLeft >= max - 3;
+  }
+  track.addEventListener("scroll", function () { if (!dotTick) { dotTick = true; requestAnimationFrame(syncDots); } }, { passive: true });
+  window.addEventListener("resize", syncDots);
+  for (var dd = 0; dd < dots.length; dd++) {
+    dots[dd].addEventListener("click", function () {
+      var i = +this.getAttribute("data-d");
+      track.scrollTo({ left: track.children[i].offsetLeft - track.children[0].offsetLeft, behavior: "smooth" });
+    });
+  }
+  cprev.addEventListener("click", function () { track.scrollBy({ left: -stepW(), behavior: "smooth" }); });
+  cnext.addEventListener("click", function () { track.scrollBy({ left: stepW(), behavior: "smooth" }); });
+  syncDots();
 
   /* Анкета */
   var form = document.getElementById("pre-form");
