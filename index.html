@@ -66,7 +66,8 @@ nav a{text-decoration:none}nav a:hover{color:var(--rose-ink)}
 .card p{color:var(--mute);margin-top:10px;font-size:15.5px}
 .ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--soft);font-size:22px;margin-bottom:14px}
 .num{font-weight:800;color:var(--rose-ink);font-size:14px;letter-spacing:.08em}
-.band{background:transparent}
+.band{background:rgba(253,228,236,.5)}
+.band--y{background:rgba(255,246,196,.6)}
 .insight{margin-top:28px;border-radius:22px;background:var(--accent);color:#fff;padding:28px 30px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 .insight b{color:var(--yellow);font-size:44px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
 .insight p{flex:1 1 320px;font-size:17px}
@@ -115,7 +116,7 @@ details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 .final .h2{color:var(--ink)}.final p{color:var(--mute);margin-top:12px;font-size:18px}
 .final .btns{justify-content:center}
 .final .btn--out{border-color:var(--accent);color:var(--accent)}
-footer{padding:34px 0 50px;color:var(--mute);font-size:14px;text-align:center}
+footer{border-top:1px solid var(--line);padding:34px 0 50px;color:var(--mute);font-size:14px;text-align:center}
 footer a{color:var(--rose-ink)}
 @media (max-width:900px){
  section{padding-block:52px}
@@ -133,14 +134,6 @@ footer a{color:var(--rose-ink)}
 }
 /* корейский декор: крупные буквы-водяные знаки и полоса с волнистым узором */
 .hg{position:absolute;font-family:"Noto Serif KR",serif;font-weight:900;line-height:1;pointer-events:none;user-select:none;z-index:0}
-.hero .hg1,.hero .hg2{display:none;font-size:60px;color:var(--rose)}
-.hero .hg2{color:#f3dd6b}
-@media (min-width:1260px){
- .hero .hg1,.hero .hg2{display:block;top:380px}
- .hero .hg1{right:calc(50% + 470px);transform:rotate(-8deg)}
- .hero .hg2{left:calc(50% + 470px);transform:rotate(7deg)}
-}
-.orn{height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cg fill='%23ffffff' stroke='%23e98fab' stroke-width='1.4'%3E%3Ccircle cx='0' cy='11' r='11'/%3E%3Ccircle cx='44' cy='11' r='11'/%3E%3Ccircle cx='22' cy='22' r='20'/%3E%3Ccircle cx='22' cy='22' r='14'/%3E%3Ccircle cx='22' cy='22' r='8'/%3E%3C/g%3E%3C/svg%3E") repeat-x center/44px 22px;opacity:.9}
 .hang{display:block;margin-bottom:8px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;color:var(--rose-ink);letter-spacing:.2em}
 /* фон: падающие цветки сакуры */
 .blossoms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -149,7 +142,6 @@ footer a{color:var(--rose-ink)}
 .words .t{position:absolute;top:-50px;padding:8px 10px;pointer-events:auto;cursor:pointer;user-select:none;-webkit-user-select:none;font-family:"Noto Serif KR",serif;font-weight:700;color:#f08fb0;white-space:nowrap;letter-spacing:.08em;opacity:0;will-change:transform,opacity;animation:sk linear infinite}
 .words .t:hover{color:#e0709b}
 .bloomable{cursor:pointer;-webkit-tap-highlight-color:transparent}
-.hero .hg1,.hero .hg2{pointer-events:auto;z-index:2}
 .fx{position:fixed;left:0;top:0;z-index:40;pointer-events:none;will-change:transform,opacity}
 .fx svg{display:block;width:100%;height:100%}
 #bloomfx{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden}
@@ -243,7 +235,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 
 <!-- HERO: видео сверху -->
 <section class="hero">
- <span class="hg hg1" aria-hidden="true">합격</span><span class="hg hg2" aria-hidden="true">한글</span>
  <div class="wrap">
   <span class="kicker">한국어능력시험 · TOPIK II · 합격!</span>
   <h1>Узнай систему, по которой я готовлю к <em>TOPIK II</em> с 3 по 6 уровень</h1>
@@ -263,7 +254,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
   </div>
  </div>
 </section>
-<div class="orn" aria-hidden="true"></div>
 
 <!-- Почему балл не растёт -->
 <section class="band">
@@ -295,7 +285,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 </section>
 
 <!-- Что получишь -->
-<section class="band">
+<section class="band band--y">
  <div class="wrap">
   <h2 class="h2 center">Что ты получишь на курсе</h2>
   <div class="grid g4">
@@ -354,7 +344,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 </section>
 
 <!-- Программа -->
-<section class="band" id="program">
+<section class="band band--y" id="program">
  <div class="wrap">
   <span class="hang center" aria-hidden="true">프로그램</span>
   <h2 class="h2 center">Программа курса</h2>
@@ -461,7 +451,6 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 </section>
 </main>
 
-<div class="orn" aria-hidden="true"></div>
 <footer>
  <span class="hang" aria-hidden="true" style="text-align:center;margin-bottom:10px">한국어능력시험 · TOPIK · 합격</span>
  <div class="wrap">
