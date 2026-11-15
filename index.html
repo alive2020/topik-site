@@ -171,6 +171,24 @@ main,footer{position:relative;z-index:1}
 .case__txt b{color:var(--ink)}
 .sum{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
 .sum span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 16px;font-weight:700;font-size:15px}
+/* лента кейсов и окно с увеличением */
+.slides{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.slides li{list-style:none}
+.slide{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;cursor:zoom-in;box-shadow:0 10px 28px rgba(29,37,71,.08);transition:transform .18s,box-shadow .18s}
+.slide:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(60,82,201,.2)}
+.slide img{width:100%;height:auto;display:block}
+@media (max-width:900px){
+ .slides{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 14px;margin-inline:-16px;-webkit-overflow-scrolling:touch}
+ .slides li{flex:0 0 min(72%,300px);scroll-snap-align:center}
+}
+dialog.dlg.dlg--img{background:#0f1634;width:min(560px,calc(100% - 20px));max-height:calc(100dvh - 20px)}
+dialog.dlg.dlg--img .dlg__in{padding:44px 12px 14px}
+dialog.dlg.dlg--img img{display:block;width:100%;height:auto;max-height:calc(100dvh - 120px);object-fit:contain;border-radius:10px;background:#fff}
+dialog.dlg.dlg--img .dlg__x{color:#fff;top:6px;right:6px}
+dialog.dlg.dlg--img .dlg__x:hover{background:rgba(255,255,255,.14)}
+.imgnav{display:flex;justify-content:space-between;gap:10px;margin-top:10px}
+.imgnav button{flex:1;min-height:46px;border:1px solid rgba(255,255,255,.3);border-radius:12px;background:transparent;color:#fff;font:700 15px var(--font);cursor:pointer}
+.imgnav button:hover{background:rgba(255,255,255,.12)}
 /* окна: выбор мессенджера и анкета предзаписи */
 dialog.dlg{border:0;padding:0;border-radius:24px;width:min(780px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(20,24,70,.35)}
 dialog.dlg::backdrop{background:rgba(28,32,64,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -277,34 +295,23 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  </div>
 </section>
 
-<!-- Результаты: кейсы учеников -->
+<!-- Результаты: кейсы учеников (карточки из Instagram, лица закрыты) -->
 <section class="band" id="results">
  <div class="wrap">
   <span class="hang center" aria-hidden="true">결과</span>
   <h2 class="h2 center">Результаты моих учеников</h2>
-  <p class="lead center">Кто с каким баллом пришёл, где был гэп и сколько набрал на экзамене.</p>
-  <!-- ЗАМЕНИТЬ: 3 карточки на настоящие кейсы и скриншоты результатов, только с согласия учеников. Можно добавить больше карточек копированием -->
-  <div class="grid g3">
-   <article class="card case">
-    <p class="case__who"><span class="ph">[Имя]</span> · <span class="ph">[зачем TOPIK]</span></p>
-    <div class="case__nums"><div><small>Было</small><b><span class="ph">[балл]</span></b></div><span class="case__arr" aria-hidden="true">→</span><div><small>Стало</small><b><span class="ph">[балл]</span></b></div></div>
-    <p class="case__gap">+<span class="ph">[N]</span> баллов</p>
-    <p class="case__txt"><b>Гэп:</b> <span class="ph">[где проседал, например письмо 53–54]</span><br><b>Что помогло:</b> <span class="ph">[1 предложение]</span></p>
-   </article>
-   <article class="card case">
-    <p class="case__who"><span class="ph">[Имя]</span> · <span class="ph">[зачем TOPIK]</span></p>
-    <div class="case__nums"><div><small>Было</small><b><span class="ph">[балл]</span></b></div><span class="case__arr" aria-hidden="true">→</span><div><small>Стало</small><b><span class="ph">[балл]</span></b></div></div>
-    <p class="case__gap">+<span class="ph">[N]</span> баллов</p>
-    <p class="case__txt"><b>Гэп:</b> <span class="ph">[где проседал]</span><br><b>Что помогло:</b> <span class="ph">[1 предложение]</span></p>
-   </article>
-   <article class="card case">
-    <p class="case__who"><span class="ph">[Имя]</span> · <span class="ph">[зачем TOPIK]</span></p>
-    <div class="case__nums"><div><small>Было</small><b><span class="ph">[балл]</span></b></div><span class="case__arr" aria-hidden="true">→</span><div><small>Стало</small><b><span class="ph">[балл]</span></b></div></div>
-    <p class="case__gap">+<span class="ph">[N]</span> баллов</p>
-    <p class="case__txt"><b>Гэп:</b> <span class="ph">[где проседал]</span><br><b>Что помогло:</b> <span class="ph">[1 предложение]</span></p>
-   </article>
-  </div>
-  <p class="center" style="margin-top:18px;font-size:13px;color:var(--mute)">Истории публикуются с согласия учеников. Результат зависит от часов занятий и честной работы над ошибками.</p>
+  <p class="lead center">Было и стало: сертификаты TOPIK II до подготовки и после. Нажми на карточку, чтобы рассмотреть крупнее.</p>
+  <ul class="slides" id="slides">
+    <li><button class="slide" type="button" data-i="0" aria-label="Открыть кейс 1 крупнее"><img src="img/results/case-1.jpg" alt="Ученица: не могла набрать 3 уровень (106 баллов), после подготовки сдала на 5 уровень (219 баллов)" width="900" height="1125" loading="lazy"></button></li>
+    <li><button class="slide" type="button" data-i="1" aria-label="Открыть кейс 2 крупнее"><img src="img/results/case-2.jpg" alt="Ученица: был 4 уровень (175 баллов), после подготовки сдала на 5 уровень (194 балла)" width="900" height="1125" loading="lazy"></button></li>
+    <li><button class="slide" type="button" data-i="2" aria-label="Открыть кейс 3 крупнее"><img src="img/results/case-3.jpg" alt="Ученица: не могла преодолеть 3 уровень (264 из 600 в IBT), после подготовки сдала на 4 уровень (318 из 600)" width="900" height="1125" loading="lazy"></button></li>
+    <li><button class="slide" type="button" data-i="3" aria-label="Открыть кейс 4 крупнее"><img src="img/results/case-4.jpg" alt="Ученица: до подготовки не сдавала TOPIK II, потом сдала на 5 уровень (205 баллов) с первого раза" width="900" height="1125" loading="lazy"></button></li>
+    <li><button class="slide" type="button" data-i="4" aria-label="Открыть кейс 5 крупнее"><img src="img/results/case-5.jpg" alt="Ученица: был 3 уровень (149 баллов), после подготовки сдала на 4 уровень (164 балла)" width="900" height="1125" loading="lazy"></button></li>
+    <li><button class="slide" type="button" data-i="5" aria-label="Открыть кейс 6 крупнее"><img src="img/results/case-6.jpg" alt="Ученица: до подготовки не сдавала TOPIK II, после подготовки сразу сдала на 5 уровень (192 балла)" width="900" height="1125" loading="lazy"></button></li>
+    <li><button class="slide" type="button" data-i="6" aria-label="Открыть кейс 7 крупнее"><img src="img/results/case-7.jpg" alt="Ученица: через 9 месяцев самостоятельно подготовилась по методике и сдала на 4 уровень (163 балла)" width="900" height="1125" loading="lazy"></button></li>
+    <li><button class="slide" type="button" data-i="7" aria-label="Открыть кейс 8 крупнее"><img src="img/results/case-8.jpg" alt="Ученица: не могла набрать 3 уровень (97 баллов), через 2,5 месяца сдала на 3 уровень (122 балла)" width="900" height="1125" loading="lazy"></button></li>
+  </ul>
+  <p class="center" style="margin-top:18px;font-size:13px;color:var(--mute)">Результат зависит от часов занятий и честной работы над ошибками.</p>
  </div>
 </section>
 
@@ -497,6 +504,15 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  </div>
 </dialog>
 
+<!-- Окно: кейс крупнее -->
+<dialog class="dlg dlg--img" id="dlg-img" aria-label="Результат ученицы крупно">
+ <div class="dlg__in">
+  <button class="dlg__x" type="button" data-close aria-label="Закрыть">&times;</button>
+  <img id="big" src="" alt="">
+  <div class="imgnav"><button type="button" id="prev">← Назад</button><button type="button" id="next">Дальше →</button></div>
+ </div>
+</dialog>
+
 <script src="js/qr.js"></script>
 <script>
 (function () {
@@ -558,6 +574,26 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
     d.addEventListener("click", function (e) { if (e.target === d) closeDlg(d); });
     d.querySelectorAll("[data-close]").forEach(function (b) { b.addEventListener("click", function () { closeDlg(d); }); });
   });
+
+
+  /* лента кейсов: увеличение по нажатию, стрелками и свайпом кнопок */
+  var dImg = document.getElementById("dlg-img");
+  var big = document.getElementById("big");
+  var slideBtns = document.querySelectorAll("#slides .slide");
+  var cur = 0;
+  function showSlide(i) {
+    cur = (i + slideBtns.length) % slideBtns.length;
+    var im = slideBtns[cur].querySelector("img");
+    big.src = im.src; big.alt = im.alt;
+  }
+  for (var q = 0; q < slideBtns.length; q++) {
+    slideBtns[q].addEventListener("click", function () { showSlide(+this.getAttribute("data-i")); openDlg(dImg); });
+  }
+  document.getElementById("prev").addEventListener("click", function () { showSlide(cur - 1); });
+  document.getElementById("next").addEventListener("click", function () { showSlide(cur + 1); });
+  dImg.addEventListener("click", function (e) { if (e.target === dImg) closeDlg(dImg); });
+  dImg.querySelector("[data-close]").addEventListener("click", function () { closeDlg(dImg); });
+  dImg.addEventListener("keydown", function (e) { if (e.key === "ArrowLeft") showSlide(cur - 1); if (e.key === "ArrowRight") showSlide(cur + 1); });
 
   /* Анкета */
   var form = document.getElementById("pre-form");
