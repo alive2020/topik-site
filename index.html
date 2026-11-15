@@ -8,13 +8,13 @@
 <meta property="og:title" content="EasyTOPIK с Айс · курс TOPIK II">
 <meta property="og:description" content="Техника всех частей, 3 полных теста и работа над ошибками. Предзапись со скидкой 20%.">
 <meta property="og:image" content="img/poster.jpg">
-<meta name="theme-color" content="#4f5bd5">
+<meta name="theme-color" content="#fff6f9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif+KR:wght@700;900&amp;display=swap">
 <style>
-/* Палитра: индиго как основной, лаванда и жёлтый как акценты, светлый фон */
-:root{--ink:#1c2040;--mute:#5d6285;--accent:#4f5bd5;--accent-2:#7c6df0;--yellow:#ffd86b;--bg:#f5f6ff;--card:#fff;--line:#e2e4f6;--soft:#eceeff;--green:#2f9e6e;
+/* Палитра: нежно-розовый фон, пастельный лимонный акцент и один тёмно-синий для текста и кнопок */
+:root{--ink:#1d2547;--mute:#5f6483;--accent:#1d2547;--accent-2:#e98fab;--rose:#f9d3df;--rose-ink:#b8456a;--yellow:#fff0a0;--lemon:#fff7c9;--bg:#fff6f9;--card:#fff;--line:#f4d9e2;--soft:#fde6ed;
 --font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -23,34 +23,35 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--font);-
 img,video{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3,h4,p,ul,ol{margin:0}ul,ol{padding:0;list-style:none}
-:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px;border-radius:8px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
 .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
 section{padding-block:72px}
 .h2{font-size:clamp(28px,4.4vw,44px);line-height:1.1;font-weight:800;letter-spacing:-.025em;text-wrap:balance}
 .lead{color:var(--mute);font-size:18px;max-width:720px;margin-top:14px}
 .center{text-align:center}.center .lead,.lead.center{margin-inline:auto}
 .ph{background:#fff1a8;color:#000;border-radius:5px;padding:0 4px;font-weight:700}
-.kicker{display:inline-block;padding:6px 14px;border-radius:99px;background:var(--soft);color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.02em}
+.kicker{display:inline-block;padding:6px 14px;border-radius:99px;background:var(--rose);color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.02em}
 /* кнопки */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 28px;border-radius:14px;border:2px solid var(--accent);background:var(--accent);color:#fff;font:700 16px var(--font);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(79,91,213,.28)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(29,37,71,.25)}
 .btn--out{background:transparent;color:var(--accent)}
-.btn--y{background:var(--yellow);border-color:var(--yellow);color:#2a2300}
-.btn--y:hover{box-shadow:0 10px 24px rgba(255,200,60,.4)}
+.btn--y{background:var(--yellow);border-color:#f3e07a;color:var(--ink)}
+.btn--y:hover{box-shadow:0 10px 24px rgba(236,205,70,.45)}
 .btn--sm{min-height:44px;padding:0 18px;font-size:14px;border-radius:12px}
 .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 /* шапка */
-header{position:sticky;top:0;z-index:20;background:rgba(245,246,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:20;background:rgba(255,246,249,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
-.logo{font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.logo{font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.02em}.logo span{color:var(--rose-ink)}
 nav{display:flex;gap:22px;font-weight:600;font-size:15px;color:var(--mute)}
-nav a{text-decoration:none}nav a:hover{color:var(--accent)}
+nav a{text-decoration:none}nav a:hover{color:var(--rose-ink)}
 /* hero */
-.hero{padding-block:48px 56px;text-align:center}
+.hero{position:relative;overflow:hidden;padding-block:48px 56px;text-align:center}
+.hero .wrap{position:relative;z-index:1}
 .hero h1{font-size:clamp(32px,5.6vw,60px);line-height:1.05;font-weight:800;letter-spacing:-.03em;margin:18px auto 0;max-width:900px;text-wrap:balance}
-.hero h1 em{font-style:normal;color:var(--accent)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--yellow) 62%);padding:0 .08em}
 .hero .lead{margin-inline:auto}
-.video{margin:34px auto 0;max-width:880px;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(40,48,120,.22);border:6px solid #fff}
+.video{margin:34px auto 0;max-width:880px;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(29,37,71,.2);border:6px solid #fff}
 .video video{width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
 .vcap{font-size:14px;color:var(--mute);margin-top:12px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
@@ -64,55 +65,57 @@ nav a{text-decoration:none}nav a:hover{color:var(--accent)}
 .card h3{font-size:20px;line-height:1.2;font-weight:800;letter-spacing:-.02em}
 .card p{color:var(--mute);margin-top:10px;font-size:15.5px}
 .ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--soft);font-size:22px;margin-bottom:14px}
-.num{font-weight:800;color:var(--accent-2);font-size:14px;letter-spacing:.08em}
+.num{font-weight:800;color:var(--rose-ink);font-size:14px;letter-spacing:.08em}
 .band{background:#fff}
-.insight{margin-top:28px;border-radius:22px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;padding:28px 30px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-.insight b{font-size:44px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.insight{margin-top:28px;border-radius:22px;background:var(--accent);color:#fff;padding:28px 30px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.insight b{color:var(--yellow);font-size:44px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
 .insight p{flex:1 1 320px;font-size:17px}
-.bonus{background:linear-gradient(180deg,#fffdf0,#fff7cf);border:1px solid #f1e3a0}
-.bonus .tag{display:inline-block;background:var(--yellow);color:#2a2300;font-weight:800;font-size:12px;padding:4px 10px;border-radius:99px;margin-bottom:12px}
+.bonus{background:linear-gradient(180deg,#fffdf0,#fff5b8);border:1px solid #f1e18a}
+.bonus .tag{display:inline-block;background:var(--yellow);color:var(--ink);font-weight:800;font-size:12px;padding:4px 10px;border-radius:99px;margin-bottom:12px}
 /* результаты */
-.res h3{font-size:18px}.res .from{color:var(--mute);font-size:14px;margin-top:10px}.res .to{color:var(--green);font-weight:800;margin-top:4px}
+.res h3{font-size:18px}.res .from{color:var(--mute);font-size:14px;margin-top:10px}.res .to{color:var(--rose-ink);font-weight:800;margin-top:4px}
 /* обо мне */
 .about{display:grid;grid-template-columns:360px 1fr;gap:40px;align-items:center}
-.about img{border-radius:26px;aspect-ratio:3/4;object-fit:cover;width:100%;box-shadow:0 20px 50px rgba(40,48,120,.2)}
+.about img{border-radius:26px;aspect-ratio:3/4;object-fit:cover;width:100%;box-shadow:0 20px 50px rgba(29,37,71,.18)}
 .about p{color:var(--mute);margin-top:14px;font-size:17px}.about p b{color:var(--ink)}
 /* аккордеон */
 .acc{max-width:860px;margin:34px auto 0;display:grid;gap:10px}
 details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:0 22px}
 summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:700;font-size:17px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:26px;color:var(--accent);line-height:1;transition:transform .2s}
+summary::after{content:"+";font-size:26px;color:var(--rose-ink);line-height:1;transition:transform .2s}
 details[open] summary::after{transform:rotate(45deg)}
 details > div{padding:0 0 20px;color:var(--mute);font-size:15.5px}
 details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 /* предзапись */
-.pre{background:linear-gradient(135deg,#fff3c4,#ffe9a0);border-radius:28px;padding:44px 36px;text-align:center;border:1px solid #f0dc8a}
+.pre{position:relative;overflow:hidden;background:linear-gradient(135deg,#fde6ee,#f9cddb);border-radius:28px;padding:44px 36px;text-align:center;border:1px solid #f3bccd}
+.pre>*{position:relative;z-index:1}
 .pre .h2{font-size:clamp(26px,4vw,40px)}
 .pre ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:20px;font-weight:600}
 .pre .btns{justify-content:center}
 /* тарифы */
 .tf{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;align-items:stretch}
 .t{position:relative;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px 26px;display:flex;flex-direction:column}
-.t--pop{border:2px solid var(--accent);box-shadow:0 20px 50px rgba(79,91,213,.2)}
+.t--pop{border:2px solid var(--accent);box-shadow:0 20px 50px rgba(29,37,71,.16)}
 .t .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-weight:800;font-size:13px;padding:6px 14px;border-radius:99px;white-space:nowrap}
 .t h3{font-size:26px;font-weight:800;letter-spacing:-.025em}
 .t .sub{color:var(--mute);margin-top:6px;font-size:15px;min-height:46px}
 .price{margin-top:18px}.price b{font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1}
 .price s{color:var(--mute);margin-left:8px;font-size:18px}
-.pre-price{display:inline-block;margin-top:10px;background:#fff3c4;color:#4a3b00;font-weight:700;font-size:14px;padding:5px 12px;border-radius:10px}
+.pre-price{display:inline-block;margin-top:10px;background:var(--yellow);color:var(--ink);font-weight:700;font-size:14px;padding:5px 12px;border-radius:10px}
 .t ul{margin:22px 0;display:grid;gap:10px;font-size:15px;flex:1}
 .t li{padding-left:26px;position:relative}
-.t li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
-.t li.no{color:#9a9eb8;text-decoration:line-through}.t li.no::before{content:"–";color:#9a9eb8}
+.t li::before{content:"✓";position:absolute;left:0;color:var(--rose-ink);font-weight:800}
+.t li.no{color:#a39aaa;text-decoration:line-through}.t li.no::before{content:"–";color:#a39aaa}
 .t .seats{font-size:13px;color:var(--mute);margin-bottom:12px}
 /* низ */
-.final{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:30px;padding:54px 30px;text-align:center}
+.final{position:relative;overflow:hidden;background:var(--accent);color:#fff;border-radius:30px;padding:54px 30px;text-align:center}
+.final>*{position:relative;z-index:1}
 .final .h2{color:#fff}.final p{opacity:.92;margin-top:12px;font-size:18px}
 .final .btns{justify-content:center}
 .final .btn--out{border-color:#fff;color:#fff}
 footer{padding:34px 0 50px;color:var(--mute);font-size:14px;text-align:center}
-footer a{color:var(--accent)}
+footer a{color:var(--rose-ink)}
 @media (max-width:900px){
  section{padding-block:52px}
  .g3,.g4,.tf{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}
@@ -127,6 +130,16 @@ footer a{color:var(--accent)}
  .btn{width:100%}.btn--sm{width:auto}
  .video{border-width:4px;border-radius:18px}
 }
+/* корейский декор: крупные буквы-водяные знаки и полоса с волнистым узором */
+.hg{position:absolute;font-family:"Noto Serif KR",serif;font-weight:900;line-height:1;pointer-events:none;user-select:none;z-index:0}
+.hero .hg1{left:-1%;top:28px;font-size:clamp(110px,19vw,240px);color:var(--rose);transform:rotate(-8deg);opacity:.85}
+.hero .hg2{right:-1%;bottom:70px;font-size:clamp(80px,13vw,170px);color:var(--yellow);transform:rotate(6deg)}
+.pre .hg{right:-10px;bottom:-30px;font-size:170px;color:#fff;opacity:.55;transform:rotate(-6deg)}
+.final .hg{left:14px;top:-14px;font-size:150px;color:var(--yellow);opacity:.12;transform:rotate(-6deg)}
+.final .hg.b{left:auto;right:14px;top:auto;bottom:-24px;color:var(--rose);opacity:.14;transform:rotate(6deg)}
+.orn{height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cg fill='%23fff6f9' stroke='%23e98fab' stroke-width='1.4'%3E%3Ccircle cx='0' cy='11' r='11'/%3E%3Ccircle cx='44' cy='11' r='11'/%3E%3Ccircle cx='22' cy='22' r='20'/%3E%3Ccircle cx='22' cy='22' r='14'/%3E%3Ccircle cx='22' cy='22' r='8'/%3E%3C/g%3E%3C/svg%3E") repeat-x center/44px 22px;opacity:.9}
+.hang{display:block;margin-top:6px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;color:var(--rose-ink);letter-spacing:.2em}
+@media (max-width:600px){.hero .hg2{display:none}.pre .hg{font-size:120px}.final .hg{font-size:110px}}
 /* окна: выбор мессенджера и анкета предзаписи */
 dialog.dlg{border:0;padding:0;border-radius:24px;width:min(780px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(20,24,70,.35)}
 dialog.dlg::backdrop{background:rgba(28,32,64,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -154,14 +167,14 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 .fl small{font-weight:500;color:var(--mute)}
 .fl input,.fl select,.fl textarea{width:100%;min-height:48px;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:500 16px var(--font)}
 .fl textarea{min-height:84px;resize:vertical}
-.fl input:focus,.fl select:focus,.fl textarea:focus{outline:3px solid var(--accent-2);outline-offset:1px;border-color:var(--accent-2)}
+.fl input:focus,.fl select:focus,.fl textarea:focus{outline:3px solid var(--accent);outline-offset:1px;border-color:var(--accent-2)}
 .fl .bad,.fl input[aria-invalid=true],.fl select[aria-invalid=true]{border-color:#d64545}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips label{cursor:pointer}
 .chips input{position:absolute;opacity:0;pointer-events:none}
 .chips span{display:inline-block;padding:9px 14px;border:1.5px solid var(--line);border-radius:99px;font:600 14px var(--font);background:#fff}
 .chips input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff}
-.chips input:focus-visible+span{outline:3px solid var(--accent-2);outline-offset:2px}
+.chips input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
 .cons{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--mute);cursor:pointer}
 .cons input{width:22px;height:22px;margin:1px 0 0;flex:none;accent-color:var(--accent)}
 .cons a{color:var(--accent)}
@@ -195,6 +208,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 
 <!-- HERO: видео сверху -->
 <section class="hero">
+ <span class="hg hg1" aria-hidden="true">합격</span><span class="hg hg2" aria-hidden="true">한국어</span>
  <div class="wrap">
   <span class="kicker">한국어 · TOPIK II · 합격!</span>
   <h1>Узнай систему, по которой я готовлю к <em>TOPIK II</em> с 3 по 6 уровень</h1>
@@ -214,6 +228,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
   </div>
  </div>
 </section>
+<div class="orn" aria-hidden="true"></div>
 
 <!-- Почему балл не растёт -->
 <section class="band">
@@ -322,14 +337,15 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <section id="pre">
  <div class="wrap">
   <div class="pre">
-   <span class="kicker" style="background:#fff">Предзапись открыта</span>
+   <span class="hg" aria-hidden="true">20%</span>
+   <span class="kicker" style="background:#fff;color:var(--rose-ink)">Предзапись открыта</span>
    <h2 class="h2" style="margin-top:14px">Оставь заявку до 15 января 2027 и получи скидку 20%</h2>
    <ul><li>✓ место на потоке раньше остальных</li><li>✓ самая низкая цена</li><li>✓ видео и PDF с программой</li><li>✓ личный ответ в WhatsApp или Telegram</li></ul>
    <div class="btns">
     <a class="btn" href="#pre" data-open="form">Заполнить заявку</a>
     <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на предзапись TOPIK II со скидкой 20%. Проконсультируйте, пожалуйста.">Задать вопрос в мессенджере</a>
    </div>
-   <p style="margin-top:16px;font-size:14px;color:#6b5a10">Заявка бесплатная и ни к чему не обязывает. Оплату я предлагаю только после знакомства.</p>
+   <p style="margin-top:16px;font-size:14px;color:var(--mute)">Заявка бесплатная и ни к чему не обязывает. Оплату я предлагаю только после знакомства.</p>
   </div>
  </div>
 </section>
@@ -395,6 +411,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <section style="padding-top:0">
  <div class="wrap">
   <div class="final">
+   <span class="hg" aria-hidden="true">합격</span><span class="hg b" aria-hidden="true">화이팅</span>
    <h2 class="h2">파이팅! Готов(а) сдать TOPIK II на уровень выше?</h2>
    <p>Предзапись до 15 января 2027: скидка 20%, видео и PDF с программой.</p>
    <div class="btns">
@@ -406,7 +423,9 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 </section>
 </main>
 
+<div class="orn" aria-hidden="true"></div>
 <footer>
+ <span class="hang" aria-hidden="true" style="text-align:center;margin-bottom:10px">한국어 · TOPIK · 합격</span>
  <div class="wrap">
   <p>© 2026 EasyTOPIK · Айс · <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a> · <a href="https://t.me/icekrmb" rel="noopener">Telegram-канал</a> · <a href="https://t.me/ice_krmb" rel="noopener">Telegram</a> · <a href="https://wa.me/821027481605" rel="noopener">WhatsApp</a></p>
   <!-- ЗАМЕНИТЬ: ссылки на оферту и политику конфиденциальности -->
