@@ -25,7 +25,7 @@ a{color:inherit}
 h1,h2,h3,h4,p,ul,ol{margin:0}ul,ol{padding:0;list-style:none}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
 .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-section{padding-block:72px}
+section{padding-block:56px}
 .h2{font-size:clamp(28px,4.4vw,44px);line-height:1.1;font-weight:800;letter-spacing:-.025em;text-wrap:balance}
 .lead{color:var(--mute);font-size:18px;max-width:720px;margin-top:14px}
 .center{text-align:center}.center .lead,.lead.center{margin-inline:auto}
@@ -155,6 +155,18 @@ footer a{color:var(--rose-ink)}
 @keyframes sw{from{transform:translateX(-14px) rotate(-14deg)}to{transform:translateX(14px) rotate(14deg)}}
 main,footer{position:relative;z-index:1}
 @media (prefers-reduced-motion:reduce){.blossoms .f,.blossoms svg,.words .t{animation:none}.blossoms .f,.words .t{opacity:var(--o,.6);top:var(--top,20vh)}}
+/* кейсы учеников и сводка курса */
+.case{display:flex;flex-direction:column;gap:12px;text-align:center}
+.case__who{font-weight:800;font-size:17px}
+.case__nums{display:flex;align-items:center;justify-content:center;gap:14px}
+.case__nums small{display:block;color:var(--mute);font-size:13px;font-weight:600}
+.case__nums b{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.case__arr{font-size:26px;color:var(--accent);font-weight:800}
+.case__gap{display:inline-block;align-self:center;background:var(--yellow);color:var(--ink);font-weight:800;border-radius:99px;padding:6px 16px;font-size:15px;margin:0}
+.case__txt{margin:0;text-align:left;font-size:15px;color:var(--mute);line-height:1.5}
+.case__txt b{color:var(--ink)}
+.sum{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.sum span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 16px;font-weight:700;font-size:15px}
 /* окна: выбор мессенджера и анкета предзаписи */
 dialog.dlg{border:0;padding:0;border-radius:24px;width:min(780px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(20,24,70,.35)}
 dialog.dlg::backdrop{background:rgba(28,32,64,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -232,8 +244,8 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 <header>
  <div class="wrap bar">
   <a class="logo" href="#top">Easy<span>TOPIK</span> с Айс</a>
-  <nav aria-label="Разделы"><a href="#system">Система</a><a href="#program">Программа</a><a href="#results">Результаты</a><a href="#prices">Тарифы</a><a href="#faq">Вопросы</a></nav>
-  <a class="btn btn--sm" href="#pre" data-open="form">Предзапись −20%</a>
+  <nav aria-label="Разделы"><a href="#results">Результаты</a><a href="#about">Обо мне</a><a href="#program">Программа</a><a href="#prices">Тарифы</a><a href="#faq">Вопросы</a></nav>
+  <a class="btn btn--sm" href="#prices" data-open="form">Предзапись −20%</a>
  </div>
 </header>
 
@@ -250,7 +262,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
   <p class="vcap">Видео: зачем тебе TOPIK и почему со мной <span class="ph">[временное видео, замените на своё]</span></p>
   <div class="btns" style="justify-content:center">
    <a class="btn tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
-   <a class="btn btn--y" href="#pre" data-open="form">Предзапись со скидкой 20%</a>
+   <a class="btn btn--y" href="#prices" data-open="form">Предзапись со скидкой 20%</a>
   </div>
   <div class="stats">
    <div class="stat"><b>6급</b><span>мой результат TOPIK</span></div>
@@ -261,81 +273,39 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  </div>
 </section>
 
-<!-- Почему балл не растёт -->
-<section class="band" id="why">
- <div class="wrap">
-  <h2 class="h2 center">Почему балл не растёт, хотя ты занимаешься</h2>
-  <p class="lead center">Чаще всего дело не в языке. Баллы дают за решённые задания конкретного типа за конкретное время.</p>
-  <div class="grid g4">
-   <div class="card"><div class="ico">🔁</div><h3>Тест за тестом</h3><p>Решаешь новые варианты, а ошибки не разбираешь. Балл стоит на месте.</p></div>
-   <div class="card"><div class="ico">🧭</div><h3>Тест до техники</h3><p>Сразу пишешь полный тест, не зная приёмов. Он показывает не уровень, а незнание формата.</p></div>
-   <div class="card"><div class="ico">⏱️</div><h3>Не хватает времени</h3><p>Длинные тексты в конце читаешь уставшей головой и оставляешь вопросы пустыми.</p></div>
-   <div class="card"><div class="ico">✍️</div><h3>Письмо без каркаса</h3><p>Задание 54 стоит 50 баллов, а пишешь его без плана и без проверки.</p></div>
-  </div>
- </div>
-</section>
-
-<!-- Система -->
-<section id="system">
- <div class="wrap">
-  <span class="hang" aria-hidden="true">세 단계</span>
-  <h2 class="h2">Три шага курса</h2>
-  <p class="lead">Сначала вся техника, потом полный тест, потом пробники с разбором. Тест до техники ничего не покажет.</p>
-  <div class="grid g3">
-   <div class="card"><span class="num">ШАГ 1</span><h3 style="margin-top:8px">Техника</h3><p>Уроки 1–8: аудирование 듣기, чтение 읽기 и письмо 쓰기. Для каждого типа задания алгоритм, ловушки и время.</p></div>
-   <div class="card"><span class="num">ШАГ 2</span><h3 style="margin-top:8px">Полный тест и цель</h3><p>3 часа дома по настоящему регламенту. На уроке 9 считаем баллы, находим три слабых места и ставим цель.</p></div>
-   <div class="card"><span class="num">ШАГ 3</span><h3 style="margin-top:8px">Пробники и ошибки</h3><p>Два пробника и работа над ошибками по трекеру. План на последние 7 дней перед экзаменом.</p></div>
-  </div>
-  <div class="insight"><b>53 + 54 = 80</b><p>Столько баллов дают два задания письма, а между 4 и 5 уровнем всего 40. Поэтому быстрее всего уровень растёт через письмо, и в курсе на него три отдельных урока.</p></div>
- </div>
-</section>
-
-<!-- Что получишь -->
-<section class="band band--y">
- <div class="wrap">
-  <h2 class="h2 center">Что ты получишь на курсе</h2>
-  <div class="grid g4">
-   <div class="card"><div class="ico">🎓</div><h3>10 уроков и 2 встречи</h3><p>Живые занятия 2 раза в неделю, все остаются в записи.</p></div>
-   <div class="card"><div class="ico">🧩</div><h3>104 задания по типам</h3><p>Аудирование 50, чтение 50 и письмо 51–54: алгоритм на каждый тип.</p></div>
-   <div class="card"><div class="ico">📝</div><h3>Каркасы для письма</h3><p>Каркасы 53 и 54, банк фраз и связок, правила бланка 원고지.</p></div>
-   <div class="card"><div class="ico">🧪</div><h3>3 полных теста</h3><p>Экзамены прошлых лет, без выдуманных вариантов. Пишешь дома, 3 часа.</p></div>
-   <div class="card"><div class="ico">🔍</div><h3>Трекер ошибок</h3><p>Тетрадь студента: видно, какие ошибки у тебя повторяются.</p></div>
-   <div class="card"><div class="ico">📅</div><h3>План под твой экзамен</h3><p>Программа с датами для темпа 14 дней, месяц или 2 месяца.</p></div>
-   <div class="card"><div class="ico">🗂️</div><h3>Notion на год</h3><p>Все материалы, задания и шаблоны, доступ на 12 месяцев.</p></div>
-   <div class="card"><div class="ico">✏️</div><h3>Проверка письма</h3><p>В тарифах «Письмо+» и «С Айс» я лично проверяю твои эссе 53 и 54.</p></div>
-  </div>
- </div>
-</section>
-
-<!-- Бонусы -->
-<section>
- <div class="wrap">
-  <h2 class="h2">Бонусы ко всем тарифам</h2>
-  <div class="grid g3">
-   <div class="card bonus"><span class="tag">БОНУС 1</span><h3>Словарь к пробникам</h3><p>Слова каждого задания с переводом на русский. Открываешь после того, как тест написан.</p></div>
-   <div class="card bonus"><span class="tag">БОНУС 2</span><h3>110 советов из 5 книг</h3><p>Советы из книг по подготовке к TOPIK, с официального сайта и от сдавших на 6 уровень. Прямо в уроках, с источником.</p></div>
-   <div class="card bonus"><span class="tag">БОНУС 3</span><h3>Бланки и чек-листы</h3><p>Бланки 원고지 для печати, шкала самооценки письма и чек-лист дня экзамена.</p></div>
-  </div>
- </div>
-</section>
-
-<!-- Результаты -->
+<!-- Результаты: кейсы учеников -->
 <section class="band" id="results">
  <div class="wrap">
   <span class="hang center" aria-hidden="true">결과</span>
-  <h2 class="h2 center">Результаты учеников</h2>
-  <p class="lead center">С чего начинали, что поменяли в подготовке и что получилось на экзамене.</p>
-  <!-- ЗАМЕНИТЬ: 3 карточки ниже на настоящие истории и скриншоты результатов, только с согласия учеников -->
+  <h2 class="h2 center">Результаты моих учеников</h2>
+  <p class="lead center">Кто с каким баллом пришёл, где был гэп и сколько набрал на экзамене.</p>
+  <!-- ЗАМЕНИТЬ: 3 карточки на настоящие кейсы и скриншоты результатов, только с согласия учеников. Можно добавить больше карточек копированием -->
   <div class="grid g3">
-   <div class="card res"><h3><span class="ph">[Имя, зачем TOPIK]</span></h3><p class="from">Было: <span class="ph">[уровень и балл]</span></p><p class="to">Стало: <span class="ph">[уровень и балл]</span></p></div>
-   <div class="card res"><h3><span class="ph">[Имя, зачем TOPIK]</span></h3><p class="from">Было: <span class="ph">[уровень и балл]</span></p><p class="to">Стало: <span class="ph">[уровень и балл]</span></p></div>
-   <div class="card res"><h3><span class="ph">[Имя, зачем TOPIK]</span></h3><p class="from">Было: <span class="ph">[уровень и балл]</span></p><p class="to">Стало: <span class="ph">[уровень и балл]</span></p></div>
+   <article class="card case">
+    <p class="case__who"><span class="ph">[Имя]</span> · <span class="ph">[зачем TOPIK]</span></p>
+    <div class="case__nums"><div><small>Было</small><b><span class="ph">[балл]</span></b></div><span class="case__arr" aria-hidden="true">→</span><div><small>Стало</small><b><span class="ph">[балл]</span></b></div></div>
+    <p class="case__gap">+<span class="ph">[N]</span> баллов</p>
+    <p class="case__txt"><b>Гэп:</b> <span class="ph">[где проседал, например письмо 53–54]</span><br><b>Что помогло:</b> <span class="ph">[1 предложение]</span></p>
+   </article>
+   <article class="card case">
+    <p class="case__who"><span class="ph">[Имя]</span> · <span class="ph">[зачем TOPIK]</span></p>
+    <div class="case__nums"><div><small>Было</small><b><span class="ph">[балл]</span></b></div><span class="case__arr" aria-hidden="true">→</span><div><small>Стало</small><b><span class="ph">[балл]</span></b></div></div>
+    <p class="case__gap">+<span class="ph">[N]</span> баллов</p>
+    <p class="case__txt"><b>Гэп:</b> <span class="ph">[где проседал]</span><br><b>Что помогло:</b> <span class="ph">[1 предложение]</span></p>
+   </article>
+   <article class="card case">
+    <p class="case__who"><span class="ph">[Имя]</span> · <span class="ph">[зачем TOPIK]</span></p>
+    <div class="case__nums"><div><small>Было</small><b><span class="ph">[балл]</span></b></div><span class="case__arr" aria-hidden="true">→</span><div><small>Стало</small><b><span class="ph">[балл]</span></b></div></div>
+    <p class="case__gap">+<span class="ph">[N]</span> баллов</p>
+    <p class="case__txt"><b>Гэп:</b> <span class="ph">[где проседал]</span><br><b>Что помогло:</b> <span class="ph">[1 предложение]</span></p>
+   </article>
   </div>
+  <p class="center" style="margin-top:18px;font-size:13px;color:var(--mute)">Истории публикуются с согласия учеников. Результат зависит от часов занятий и честной работы над ошибками.</p>
  </div>
 </section>
 
 <!-- Обо мне -->
-<section>
+<section id="about">
  <div class="wrap about">
   <!-- ЗАМЕНИТЬ: img/aisulu.jpg на своё фото -->
   <img src="img/aisulu.jpg" alt="Айс (временное фото)" width="600" height="800" loading="lazy">
@@ -354,6 +324,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  <div class="wrap">
   <span class="hang center" aria-hidden="true">프로그램</span>
   <h2 class="h2 center">Программа курса</h2>
+  <div class="sum"><span>🎓 10 уроков и 2 встречи</span><span>🧩 104 задания по типам</span><span>🧪 3 полных теста</span><span>🗂️ Notion на год</span></div>
   <div class="acc">
    <details><summary>Встреча 1 и урок 1: как устроен TOPIK II</summary><div><ul><li>Запись эфира «Где теряют баллы», анкета: уровень, дата экзамена и цель</li><li>Что ждёт в зале, 7 правил, которые берегут баллы</li><li>Два трека: A с целью от 150 баллов, B с целью от 190</li></ul></div></details>
    <details><summary>Урок 2: аудирование 1–20</summary><div><ul><li>Ты всегда на один вопрос впереди: варианты читаешь, пока диктор не начал</li><li>5 типов заданий и система пометок на буклете</li></ul></div></details>
@@ -367,24 +338,8 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  </div>
 </section>
 
-<!-- Предзапись -->
-<section id="pre">
- <div class="wrap">
-  <div class="pre">
-   <span class="kicker" style="background:#fff;color:var(--rose-ink)">Предзапись открыта</span>
-   <h2 class="h2" style="margin-top:14px">Оставь заявку до 15 января 2027 и получи скидку 20%</h2>
-   <ul><li>✓ место на потоке раньше остальных</li><li>✓ самая низкая цена</li><li>✓ видео и PDF с программой</li><li>✓ личный ответ в WhatsApp или Telegram</li></ul>
-   <div class="btns">
-    <a class="btn btn--y" href="#pre" data-open="form">Заполнить заявку</a>
-    <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на предзапись TOPIK II со скидкой 20%. Проконсультируйте, пожалуйста.">Задать вопрос в мессенджере</a>
-   </div>
-   <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.72)">Заявка бесплатная и ни к чему не обязывает. Оплату я предлагаю только после знакомства.</p>
-  </div>
- </div>
-</section>
-
 <!-- Тарифы -->
-<section class="band" id="prices">
+<section id="prices">
  <div class="wrap">
   <span class="hang center" aria-hidden="true">가격</span>
   <h2 class="h2 center">Тарифы</h2>
@@ -420,12 +375,13 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
     <a class="btn btn--out tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II, тариф «С Айс». Проконсультируйте, пожалуйста.">Выбрать «С Айс»</a>
    </div>
   </div>
-  <p class="center" style="margin-top:22px;color:var(--mute);font-size:14px">Скидка 20% действует для заявок до 15 января 2027 включительно. Возврата после оплаты нет: материалы открываются сразу, все вопросы решаем до оплаты.</p>
+  <p class="center" style="margin-top:22px;font-size:15px"><b>Во всех тарифах бонусом:</b> словарь к пробникам, 110 советов из 5 книг, бланки 원고지 и чек-листы.</p>
+  <p class="center" style="margin-top:10px;color:var(--mute);font-size:14px">Скидка 20% действует для заявок до 15 января 2027 включительно. Возврата после оплаты нет: материалы открываются сразу, все вопросы решаем до оплаты.</p>
  </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section class="band" id="faq">
  <div class="wrap">
   <span class="hang center" aria-hidden="true">질문</span>
   <h2 class="h2 center">Вопросы и ответы</h2>
@@ -450,7 +406,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
    <p>Предзапись до 15 января 2027: скидка 20%, видео и PDF с программой.</p>
    <div class="btns">
     <a class="btn tg" href="https://t.me/ice_krmb" data-msg="Хочу на курс TOPIK II. Проконсультируйте, пожалуйста.">Хочу на курс</a>
-    <a class="btn btn--y" href="#pre" data-open="form">Предзапись −20%</a>
+    <a class="btn btn--y" href="#prices" data-open="form">Предзапись −20%</a>
    </div>
   </div>
  </div>
@@ -741,7 +697,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
     marked[m].addEventListener("click", function (e) { bloomAt(this, e); });
   }
   /* цветки и плывущие слова видны только выше блока «Почему балл не растёт»: ниже границы они обрезаются и пропадают */
-  var why = document.getElementById("why");
+  var why = document.getElementById("results");
   var cutTick = false;
   function cutLayers() {
     cutTick = false;
