@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif+KR:wght@700;900&amp;display=swap">
 <style>
 /* Палитра: нежно-розовый фон, пастельный лимонный акцент и один тёмно-синий для текста и кнопок */
-:root{--ink:#1d2547;--mute:#5f6483;--accent:#1d2547;--accent-2:#e98fab;--rose:#f9d3df;--rose-ink:#b8456a;--yellow:#fff0a0;--lemon:#fff7c9;--bg:#ffffff;--card:#fff;--line:#ebe7f0;--soft:#fde6ed;
+:root{--ink:#1d2547;--mute:#5f6483;--accent:#3c52c9;--accent-2:#e98fab;--rose:#f9d3df;--rose-ink:#b8456a;--yellow:#fff0a0;--lemon:#fff7c9;--bg:#ffffff;--card:#fff;--line:#ebe7f0;--soft:#fde6ed;
 --font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -33,7 +33,7 @@ section{padding-block:72px}
 .kicker{display:inline-block;padding:6px 14px;border-radius:99px;background:var(--rose);color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.02em}
 /* кнопки */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 28px;border-radius:14px;border:2px solid var(--accent);background:var(--accent);color:#fff;font:700 16px var(--font);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(29,37,71,.25)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(60,82,201,.32)}
 .btn--out{background:transparent;color:var(--accent)}
 .btn--y{background:var(--yellow);border-color:#f3e07a;color:var(--ink)}
 .btn--y:hover{box-shadow:0 10px 24px rgba(236,205,70,.45)}
@@ -97,7 +97,7 @@ details ul{list-style:disc;padding-left:20px;display:grid;gap:6px}
 /* тарифы */
 .tf{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;align-items:stretch}
 .t{position:relative;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px 26px;display:flex;flex-direction:column}
-.t--pop{border:2px solid var(--accent);box-shadow:0 20px 50px rgba(29,37,71,.16)}
+.t--pop{border:2px solid var(--accent);box-shadow:0 20px 50px rgba(60,82,201,.2)}
 .t .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-weight:800;font-size:13px;padding:6px 14px;border-radius:99px;white-space:nowrap}
 .t h3{font-size:26px;font-weight:800;letter-spacing:-.025em}
 .t .sub{color:var(--mute);margin-top:6px;font-size:15px;min-height:46px}
