@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мой курс · EasyTOPIK с Айс</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:root{--ink:#1d2547;--mute:#5f6483;--accent:#3c52c9;--rose:#f9d3df;--yellow:#fff0a0;--bg:#ffffff;--band:#f5f6fe;--line:#e4e6f6;--ok:#1f9d63;--live:#d6336c;
+--font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--band);color:var(--ink);font:16px/1.55 var(--font);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit}h1,h2,h3,p,ul,ol{margin:0}ul,ol{padding:0;list-style:none}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+.wrap{width:min(860px,100% - 32px);margin-inline:auto}
+[hidden]{display:none!important}
+
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px}
+.logo{white-space:nowrap;font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent);background:linear-gradient(transparent 62%,var(--yellow) 62%);padding:0 .08em}
+.bar nav{display:flex;align-items:center;gap:6px}
+.lnk{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:10px;font-weight:700;font-size:14px;color:var(--mute);text-decoration:none;background:none;border:0;cursor:pointer}
+.lnk:hover{color:var(--accent);background:var(--band)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:14px;border:2px solid var(--accent);background:var(--accent);color:#fff;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(60,82,201,.28)}
+.btn[disabled]{opacity:.6;cursor:wait;transform:none;box-shadow:none}
+.btn--sm{min-height:40px;padding:0 16px;font-size:14px;border-radius:11px}
+.btn--out{background:#fff;color:var(--accent)}
+
+.demo{background:var(--yellow);color:var(--ink);font-size:14px;font-weight:600;text-align:center;padding:9px 16px}
+main{padding-block:28px 64px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+
+/* вход */
+.login{max-width:460px;margin:6vh auto 0}
+.login h1{font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.02em}
+.login p.sub{color:var(--mute);margin-top:10px}
+.field{display:block;margin-top:18px}
+.field input{width:100%;min-height:54px;border:2px solid var(--line);border-radius:14px;padding:0 16px;background:#fff;font-size:17px}
+.field input:focus{border-color:var(--accent);outline:none}
+.field input.code{font-size:28px;letter-spacing:.35em;text-align:center;font-weight:800}
+.login .btn{width:100%;margin-top:16px}
+.msg{min-height:22px;margin-top:12px;font-size:14px;color:var(--live);font-weight:600}
+.msg.ok{color:var(--ok)}
+.small{font-size:14px;color:var(--mute);margin-top:14px}
+.small a,.small button{color:var(--accent);font-weight:700}
+.small button{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+
+/* шапка курса */
+.hello h1{font-size:clamp(26px,5vw,36px);line-height:1.1;font-weight:800;letter-spacing:-.025em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--mute)}
+.chip.t{background:var(--rose);border-color:var(--rose);color:#8d2d52}
+.next{margin-top:22px;display:grid;gap:6px;background:var(--accent);color:#fff;border:0}
+.next .k{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+.next h2{font-size:22px;line-height:1.2;font-weight:800}
+.next .when{opacity:.95}
+.next .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:10px}
+.next .btn{background:#fff;color:var(--accent);border-color:#fff}
+.next .btn.off{background:rgba(255,255,255,.18);border-color:transparent;color:rgba(255,255,255,.85);cursor:not-allowed;box-shadow:none;transform:none}
+.prog{margin-top:20px;display:flex;align-items:center;gap:14px;font-size:14px;font-weight:700;color:var(--mute)}
+.bar2{flex:1;height:10px;border-radius:99px;background:#e4e6f6;overflow:hidden}
+.bar2 i{display:block;height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .4s}
+h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
+
+/* занятия */
+.list{display:grid;gap:12px}
+.it{display:grid;grid-template-columns:46px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+.it .no{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:800;font-size:17px}
+.it.live .no{background:var(--live)}
+.it.done .no{background:var(--ok)}
+.it .top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.it .num{font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.it h3{font-size:18px;line-height:1.25;font-weight:800;letter-spacing:-.01em}
+.badge{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:99px;background:#e9ecff;color:var(--accent)}
+.badge.live{background:#ffe0ec;color:var(--live)}
+.pts{margin-top:8px;color:var(--mute);font-size:14.5px;display:grid;gap:3px}
+.pts li{padding-left:16px;position:relative}.pts li::before{content:"";position:absolute;left:3px;top:.62em;width:5px;height:5px;border-radius:50%;background:#b9bfe8}
+.rows{display:grid;gap:8px;margin-top:14px}
+.r{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 12px;border-radius:14px;background:var(--band)}
+.r .l{font-weight:700;font-size:14px;flex:1 1 220px}
+.r .l small{display:block;font-weight:500;color:var(--mute);font-size:13px}
+.act{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 16px;border-radius:11px;border:2px solid var(--accent);background:var(--accent);color:#fff;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+.act.sec{background:#fff;color:var(--accent)}
+.act[aria-disabled="true"]{background:#e6e7ee;border-color:#e6e7ee;color:#9a9db2;cursor:not-allowed}
+/* подсказка при наведении на закрытую кнопку */
+.act[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);white-space:nowrap;background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:7px 11px;border-radius:9px;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:5}
+.act[data-tip]:hover::after,.act[data-tip]:focus-visible::after{opacity:1;transform:translateX(-50%)}
+.it.locked-all{background:#fafafc}
+.it.locked-all .no{background:#c9cbd9}
+.it.locked-all h3{color:#7c8099}
+.panel{margin-top:12px;border-radius:16px;overflow:hidden;background:#000;aspect-ratio:16/9;position:relative}
+.panel iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.donebar{margin-top:10px;display:flex;justify-content:flex-end}
+.tnote{margin-top:6px}
+.tnote li{padding:10px 0 10px 28px;border-top:1px solid var(--line);position:relative;font-size:15px}
+.tnote li:first-child{border-top:0}
+.tnote li::before{content:"✓";position:absolute;left:4px;top:10px;color:var(--ok);font-weight:800}
+.help{margin-top:26px;text-align:center;color:var(--mute);font-size:14px}
+.help a{color:var(--accent);font-weight:700}
+.load{padding:80px 0;text-align:center;color:var(--mute)}
+
+@media (max-width:560px){
+ .wrap{width:min(860px,100% - 24px)}
+ .card{padding:20px;border-radius:18px}
+ .it{grid-template-columns:1fr;gap:10px;padding:16px}
+ .it .no{width:40px;height:40px;border-radius:12px;font-size:15px}
+ .logo{font-size:15px}
+ .act{flex:1 1 100%;justify-content:center}
+ .act[data-tip]::after{white-space:normal;width:max-content;max-width:240px;text-align:center}
+ .lnk{padding:0 8px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="../">Easy<span>TOPIK</span> с Айс</a>
+  <nav aria-label="Кабинет">
+   <a class="lnk" id="vocab" href="/topik-vocab" hidden>Словарь-тренажёр</a>
+   <button class="lnk" id="logout" type="button" hidden>Выйти</button>
+  </nav>
+ </div>
+</header>
+<div class="demo" id="demo-bar" hidden>Это демонстрация: так ученик видит курс. Даты и видео примерные, настоящих записей здесь нет.</div>
+
+<main class="wrap">
+
+ <div class="load" id="v-load">Загружаю…</div>
+
+ <!-- вход -->
+ <section class="login card" id="v-login" hidden aria-labelledby="lt">
+  <h1 id="lt">Вход в курс</h1>
+  <p class="sub">Введи e-mail, с которым оплачивала курс. Я пришлю код для входа, пароль не нужен.</p>
+  <form id="f-email" novalidate>
+   <label class="field">E-mail
+    <input id="email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="name@gmail.com" required>
+   </label>
+   <button class="btn" type="submit">Получить код</button>
+  </form>
+  <form id="f-code" hidden novalidate>
+   <p class="sub" id="sent-to"></p>
+   <label class="field">Код из письма
+    <input id="code" class="code" type="text" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="······" required>
+   </label>
+   <button class="btn" type="submit">Войти</button>
+   <p class="small"><button type="button" id="resend">Отправить код ещё раз</button> · <button type="button" id="other">Другой e-mail</button></p>
+  </form>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
+  <p class="small">Письмо не приходит? Загляни в «Спам». Нет доступа? Напиши мне в <a href="https://t.me/ice_krmb">Telegram</a>.</p>
+ </section>
+
+ <!-- курс -->
+ <section id="v-course" hidden>
+  <div class="hello">
+   <h1 id="hi"></h1>
+   <div class="chips" id="chips"></div>
+  </div>
+  <div class="card next" id="next" hidden></div>
+  <div class="prog"><span id="prog-t"></span><div class="bar2"><i id="prog-b"></i></div></div>
+  <h2 class="sec">Программа курса</h2>
+  <ol class="list" id="list"></ol>
+  <h2 class="sec" id="tn-h" hidden>Что входит в твой тариф</h2>
+  <div class="card" id="tn" hidden><ul class="tnote" id="tn-l"></ul></div>
+  <p class="help">Вопросы по курсу: <a href="https://t.me/ice_krmb">Telegram @ice_krmb</a></p>
+ </section>
+</main>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var DEMO = /[?&]demo(=|&|$)/.test(location.search);
+  var offset = 0;              // разница между часами сервера и браузера
+  var state = null;
+
+  function show(v) { ["v-load", "v-login", "v-course"].forEach(function (x) { $(x).hidden = x !== v; }); }
+  function setMsg(t, ok) { var m = $("msg"); m.textContent = t || ""; m.className = "msg" + (ok ? " ok" : ""); }
+
+  // ---------- запросы ----------
+  function api(path, body) {
+    return fetch(path, {
+      method: body ? "POST" : "GET",
+      credentials: "same-origin",
+      headers: body ? { "content-type": "application/json" } : {},
+      body: body ? JSON.stringify(body) : undefined
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { j.status = r.status; return j; }); });
+  }
+
+  // ---------- даты ----------
+  var KR = "Asia/Seoul";
+  var MY_TZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  function f(opt, tz) { return new Intl.DateTimeFormat("ru", Object.assign({}, opt, tz ? { timeZone: tz } : {})); }
+  var fDay = f({ weekday: "short", day: "numeric", month: "long" }, KR);
+  var fTime = f({ hour: "2-digit", minute: "2-digit" }, KR);
+  var fMyTime = f({ hour: "2-digit", minute: "2-digit" });
+  var fMyDay = f({ weekday: "short", day: "numeric", month: "long" });
+  var fShort = f({ day: "numeric", month: "long" }, KR);
+  function now() { return Date.now() + offset; }
+  function whenText(iso) {
+    var d = new Date(iso);
+    var s = fDay.format(d) + ", " + fTime.format(d) + " по Сеулу";
+    var me = fMyTime.format(d), same = MY_TZ === KR;
+    var meDay = fMyDay.format(d) !== fDay.format(d) ? fMyDay.format(d) + " " : "";
+    return { main: s, mine: same ? "" : "у тебя " + meDay + me };
+  }
+  function inDays(iso) {
+    var d = Math.ceil((new Date(iso).getTime() - now()) / 864e5);
+    if (d <= 0) return "сегодня";
+    if (d === 1) return "завтра";
+    var m = d % 10, h = d % 100;
+    return "через " + d + (m === 1 && h !== 11 ? " день" : (m >= 2 && m <= 4 && (h < 12 || h > 14)) ? " дня" : " дней");
+  }
+
+  // ---------- отметки «пройдено» (хранятся в этом браузере) ----------
+  function doneKey() { return "tc-done:" + (state && state.user ? state.user.email : "demo"); }
+  function getDone() { try { return JSON.parse(localStorage.getItem(doneKey()) || "{}"); } catch (e) { return {}; } }
+  function setDone(id, v) { var d = getDone(); if (v) d[id] = 1; else delete d[id]; try { localStorage.setItem(doneKey(), JSON.stringify(d)); } catch (e) {} }
+
+  // ---------- отрисовка ----------
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  function nextLive(items) {
+    var n = now(), best = null;
+    items.forEach(function (it) {
+      if (!it.live) return;
+      var end = new Date(it.live.at).getTime() + it.live.mins * 60000;
+      if (end + 2 * 36e5 < n) return;
+      if (!best || new Date(it.live.at) < new Date(best.live.at)) best = it;
+    });
+    return best;
+  }
+
+  function renderNext(items) {
+    var box = $("next"), it = nextLive(items);
+    if (!it) { box.hidden = true; return; }
+    var w = whenText(it.live.at);
+    box.hidden = false;
+    box.innerHTML = '<span class="k">Ближайший эфир</span><h2>' + esc(it.num) + ": " + esc(it.title) + '</h2>' +
+      '<p class="when">' + esc(w.main) + (w.mine ? " (" + esc(w.mine) + ")" : "") + " · " + inDays(it.live.at) + '</p>';
+    var row = el("div", "row");
+    if (it.live.zoom) {
+      var a = el("a", "btn btn--sm", "Подключиться в Zoom"); a.href = it.live.zoom; a.target = "_blank"; a.rel = "noopener";
+      row.appendChild(a);
+    } else if (it.live.joinOpen) {
+      row.appendChild(el("span", "when", "Эфир идёт. Ссылку на Zoom пришлю в Telegram."));
+    } else {
+      var b = el("span", "btn btn--sm off", "Кнопка Zoom откроется за 30 минут до эфира");
+      row.appendChild(b);
+    }
+    box.appendChild(row);
+  }
+
+  function liveRow(it) {
+    var w = whenText(it.live.at);
+    var r = el("div", "r");
+    var l = el("div", "l", (it.live.ended ? "Эфир прошёл: " : "Живой эфир: ") + esc(w.main) + (w.mine ? "<small>" + esc(w.mine) + "</small>" : ""));
+    r.appendChild(l);
+    if (!it.live.ended) {
+      var a;
+      if (it.live.zoom) { a = el("a", "act", "Подключиться"); a.href = it.live.zoom; a.target = "_blank"; a.rel = "noopener"; }
+      else if (it.live.joinOpen) { a = el("span", "act sec", "Ссылку пришлю в Telegram"); }
+      else { a = el("button", "act", "Zoom"); a.type = "button"; a.setAttribute("aria-disabled", "true"); a.setAttribute("data-tip", "Кнопка откроется за 30 минут до эфира"); a.addEventListener("click", function (e) { e.preventDefault(); }); }
+      r.appendChild(a);
+    }
+    return r;
+  }
+
+  function recRow(it, panelHolder, onToggle) {
+    var rec = it.record, r = el("div", "r");
+    if (rec.open) {
+      r.appendChild(el("div", "l", "Запись урока"));
+      var b = el("button", "act", "▶ Смотреть"); b.type = "button"; b.setAttribute("aria-expanded", "false");
+      b.addEventListener("click", function () { onToggle(b); });
+      r.appendChild(b);
+    } else {
+      var d = new Date(rec.opens);
+      r.appendChild(el("div", "l", "Запись урока<small>Откроется " + esc(fShort.format(d)) + "</small>"));
+      var g = el("button", "act", "▶ Смотреть"); g.type = "button";
+      g.setAttribute("aria-disabled", "true");
+      g.setAttribute("data-tip", "Откроется " + fShort.format(d));
+      g.setAttribute("aria-label", "Запись откроется " + fShort.format(d));
+      g.addEventListener("click", function (e) { e.preventDefault(); });
+      r.appendChild(g);
+    }
+    return r;
+  }
+
+  function renderItems(items) {
+    var list = $("list"); list.innerHTML = "";
+    var done = getDone();
+    var doneCount = 0;
+    items.forEach(function (it, i) {
+      var isDone = !!done[it.id] && it.record && it.record.open;
+      if (isDone) doneCount++;
+      var li = el("li", "it" + (it.type === "live" ? " live" : "") + (isDone ? " done" : "") + (it.record && !it.record.open && !(it.live && !it.live.ended) ? " locked-all" : ""));
+      li.id = "it-" + it.id;
+      li.appendChild(el("div", "no", isDone ? "✓" : String(i + 1)));
+      var body = el("div", "bd");
+      var top = el("div", "top");
+      top.appendChild(el("span", "num", esc(it.num)));
+      top.appendChild(el("span", "badge" + (it.type === "live" ? " live" : ""), it.type === "live" ? "Живой эфир" : "Запись"));
+      body.appendChild(top);
+      body.appendChild(el("h3", "", esc(it.title)));
+      var ul = el("ul", "pts"); it.points.forEach(function (p) { ul.appendChild(el("li", "", esc(p))); });
+      body.appendChild(ul);
+
+      var rows = el("div", "rows");
+      if (it.live) rows.appendChild(liveRow(it));
+      var panel = null, donebar = null;
+      if (it.record) {
+        rows.appendChild(recRow(it, null, function (btn) {
+          if (!panel) {
+            panel = el("div", "panel");
+            var fr = document.createElement("iframe");
+            fr.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(it.record.yt) + "?rel=0&modestbranding=1";
+            fr.title = it.num + ": " + it.title;
+            fr.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+            fr.loading = "lazy";
+            panel.appendChild(fr);
+            donebar = el("div", "donebar");
+            var db = el("button", "act sec", getDone()[it.id] ? "Снять отметку «пройдено»" : "Отметить пройденным"); db.type = "button";
+            db.addEventListener("click", function () { setDone(it.id, !getDone()[it.id]); renderItems(state.items); updateProgress(state.items); });
+            donebar.appendChild(db);
+            rows.appendChild(panel); rows.appendChild(donebar);
+            btn.textContent = "Скрыть видео"; btn.setAttribute("aria-expanded", "true");
+          } else {
+            var hide = !panel.hidden; panel.hidden = hide; donebar.hidden = hide;
+            btn.textContent = hide ? "▶ Смотреть" : "Скрыть видео"; btn.setAttribute("aria-expanded", hide ? "false" : "true");
+          }
+        }));
+      }
+      body.appendChild(rows);
+      li.appendChild(body);
+      list.appendChild(li);
+    });
+    updateProgress(items, doneCount);
+  }
+
+  function updateProgress(items, cnt) {
+    if (cnt == null) { var d = getDone(); cnt = items.filter(function (i) { return d[i.id] && i.record && i.record.open; }).length; }
+    var total = items.filter(function (i) { return i.record; }).length;
+    $("prog-t").textContent = "Пройдено " + cnt + " из " + total;
+    $("prog-b").style.width = (total ? Math.round(cnt / total * 100) : 0) + "%";
+  }
+
+  function renderCourse(d) {
+    state = d;
+    offset = new Date(d.now).getTime() - Date.now();
+    $("hi").textContent = "Привет" + (d.user.name ? ", " + d.user.name : "") + "!";
+    var chips = $("chips"); chips.innerHTML = "";
+    chips.appendChild(el("span", "chip t", "Тариф: " + esc(d.user.tariff)));
+    if (d.user.until) chips.appendChild(el("span", "chip", "Доступ до " + esc(new Intl.DateTimeFormat("ru", { day: "numeric", month: "long", year: "numeric" }).format(new Date(d.user.until + "T00:00:00")))));
+    chips.appendChild(el("span", "chip", "Курс подготовки к TOPIK II"));
+    renderNext(d.items);
+    renderItems(d.items);
+    var notes = d.tariffNotes || [];
+    $("tn-h").hidden = $("tn").hidden = !notes.length;
+    var tl = $("tn-l"); tl.innerHTML = ""; notes.forEach(function (n) { tl.appendChild(el("li", "", esc(n))); });
+    $("vocab").hidden = DEMO;
+    $("logout").hidden = DEMO;
+    $("demo-bar").hidden = !d.demo;
+    show("v-course");
+  }
+
+  // ---------- вход ----------
+  var emailNow = "", cool = 0, coolTimer = null;
+  function startCool() {
+    cool = 60; var b = $("resend"); b.disabled = true;
+    clearInterval(coolTimer);
+    coolTimer = setInterval(function () { cool--; if (cool <= 0) { clearInterval(coolTimer); b.disabled = false; b.textContent = "Отправить код ещё раз"; } else b.textContent = "Отправить ещё раз через " + cool + " с"; }, 1000);
+    b.textContent = "Отправить ещё раз через " + cool + " с";
+  }
+  var ERR = { email: "Проверь e-mail: он написан не так.", rate: "Слишком много попыток. Попробуй через час или напиши мне в Telegram.", mail: "Не получилось отправить письмо. Напиши мне в Telegram, я открою вход вручную.", server: "Сервис временно недоступен. Попробуй через минуту." };
+
+  function sendCode(email, btn) {
+    setMsg(""); if (btn) btn.disabled = true;
+    return api("/api/auth/request", { email: email }).then(function (j) {
+      if (btn) btn.disabled = false;
+      if (j.ok) {
+        emailNow = email;
+        $("f-email").hidden = true; $("f-code").hidden = false;
+        $("sent-to").textContent = "Если этот e-mail есть в списке учеников, на " + email + " придёт письмо с кодом. Он действует 10 минут.";
+        $("code").value = ""; $("code").focus(); startCool();
+      } else setMsg(ERR[j.error] || ERR.server);
+    }).catch(function () { if (btn) btn.disabled = false; setMsg(ERR.server); });
+  }
+
+  $("f-email").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = $("email").value.trim();
+    if (!/^\S+@\S+\.\S{2,}$/.test(v)) { setMsg(ERR.email); return; }
+    sendCode(v, e.target.querySelector("button[type=submit]"));
+  });
+  $("resend").addEventListener("click", function () { if (!cool || cool <= 0) sendCode(emailNow, null); });
+  $("other").addEventListener("click", function () { $("f-code").hidden = true; $("f-email").hidden = false; setMsg(""); $("email").focus(); });
+  $("code").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 6); });
+  $("f-code").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var code = $("code").value;
+    if (code.length !== 6) { setMsg("Код состоит из 6 цифр."); return; }
+    var btn = e.target.querySelector("button[type=submit]"); btn.disabled = true; setMsg("");
+    api("/api/auth/verify", { email: emailNow, code: code }).then(function (j) {
+      btn.disabled = false;
+      if (j.ok) { setMsg(""); load(); }
+      else if (j.error === "rate") setMsg(ERR.rate);
+      else setMsg("Код не подошёл или устарел. Проверь цифры или запроси новый.");
+    }).catch(function () { btn.disabled = false; setMsg(ERR.server); });
+  });
+  $("logout").addEventListener("click", function () {
+    api("/api/auth/logout", {}).then(function () { state = null; $("f-code").hidden = true; $("f-email").hidden = false; setMsg(""); show("v-login"); $("logout").hidden = true; $("vocab").hidden = true; });
+  });
+
+  // ---------- старт ----------
+  function load() {
+    api(DEMO ? "/api/cabinet/demo" : "/api/cabinet").then(function (j) {
+      if (j.ok) renderCourse(j);
+      else if (j.status === 401) { show("v-login"); $("email").focus(); }
+      else { show("v-login"); setMsg(ERR.server); }
+    }).catch(function () { show("v-login"); setMsg(ERR.server); });
+  }
+  load();
+})();
+</script>
+</body>
+</html>

@@ -45,6 +45,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdro
 .logo{white-space:nowrap;font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.02em}.logo span{color:var(--accent);background:linear-gradient(transparent 62%,var(--yellow) 62%);padding:0 .08em}
 nav{display:flex;gap:22px;font-weight:600;font-size:15px;color:var(--mute)}
 nav a{text-decoration:none}nav a:hover{color:var(--rose-ink)}
+.bar-r{display:flex;align-items:center;gap:16px}
+.login-link{font-weight:700;font-size:14px;color:var(--mute);text-decoration:none;white-space:nowrap}.login-link:hover{color:var(--accent)}
 /* hero */
 .hero{position:relative;overflow:hidden;padding-block:48px 56px;text-align:center}
 .hero .wrap{position:relative;z-index:1}
@@ -129,7 +131,7 @@ footer a{color:#dfe3ff}
  nav{display:none}
 }
 @media (max-width:400px){
- .logo{font-size:15px}.bar{gap:8px}
+ .logo{font-size:15px}.bar{gap:8px}.login-link{display:none}
  .bar .btn--sm{padding:0 12px;font-size:13px;white-space:nowrap}
 }
 @media (max-width:600px){
@@ -271,7 +273,8 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
  <div class="wrap bar">
   <a class="logo" href="#top">Easy<span>TOPIK</span> с Айс</a>
   <nav aria-label="Разделы"><a href="#results">Результаты</a><a href="#about">Обо мне</a><a href="#program">Программа</a><a href="#prices">Тарифы</a><a href="#faq">Вопросы</a></nav>
-  <a class="btn btn--sm" href="#prices" data-open="form">Предзапись −20%</a>
+  <div class="bar-r"><a class="login-link" href="cabinet/">Войти</a>
+  <a class="btn btn--sm" href="#prices" data-open="form">Предзапись −20%</a></div>
  </div>
 </header>
 
@@ -416,7 +419,7 @@ dialog.dlg[open]{animation:dlgIn .18s ease-out}
 
 <footer>
  <div class="wrap">
-  <p>© 2026 EasyTOPIK · Айс · <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a> · <a href="https://t.me/icekrmb" rel="noopener">Telegram-канал</a> · <a href="https://t.me/ice_krmb" rel="noopener">Telegram</a> · <a href="https://wa.me/821027481605" rel="noopener">WhatsApp</a></p>
+  <p>© 2026 EasyTOPIK · Айс · <a href="https://www.instagram.com/ice.krmb/" rel="noopener">Instagram</a> · <a href="https://t.me/icekrmb" rel="noopener">Telegram-канал</a> · <a href="https://t.me/ice_krmb" rel="noopener">Telegram</a> · <a href="https://wa.me/821027481605" rel="noopener">WhatsApp</a> · <a href="cabinet/">Вход в курс</a></p>
   <!-- ЗАМЕНИТЬ: ссылки на оферту и политику конфиденциальности -->
   <p style="margin-top:8px"><a href="#">Публичная оферта</a> · <a href="#">Политика конфиденциальности</a></p>
   <p style="margin-top:8px">Курс опирается на официальные правила TOPIK, но не связан с организатором экзамена.</p>
