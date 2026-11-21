@@ -10,15 +10,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
 <style>
-:root{--ink:#1d2547;--mute:#5f6483;--accent:#3c52c9;--rose:#f9d3df;--yellow:#fff0a0;--bg:#ffffff;--band:#f5f6fe;--line:#e4e6f6;--ok:#1f9d63;--live:#d6336c;
+:root{--ink:#16161d;--mute:#70707c;--line:#e7e7ed;--accent:#3c52c9;--yellow:#fff0a0;--bg:#ffffff;
+--pink:#ee86ad;--pink-ink:#c2436f;--pink-bg:#fff4f8;--ok:#1f9d63;--ok-ink:#11704a;--ok-bg:#e8f7ef;--ok-line:#bfe6d2;--err:#c2436f;
 --font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--band);color:var(--ink);font:16px/1.55 var(--font);-webkit-font-smoothing:antialiased;min-height:100vh}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-wrap:break-word}
 a{color:inherit}h1,h2,h3,p,ul,ol{margin:0}ul,ol{padding:0;list-style:none}
 button,input{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
-.wrap{width:min(860px,100% - 32px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:14px}
+.wrap{width:min(820px,100% - 32px);margin-inline:auto}
 [hidden]{display:none!important}
 
 header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -26,97 +27,121 @@ header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdro
 .logo{white-space:nowrap;font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.02em}
 .logo span{color:var(--accent);background:linear-gradient(transparent 62%,var(--yellow) 62%);padding:0 .08em}
 .bar nav{display:flex;align-items:center;gap:6px}
-.lnk{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:10px;font-weight:700;font-size:14px;color:var(--mute);text-decoration:none;background:none;border:0;cursor:pointer}
-.lnk:hover{color:var(--accent);background:var(--band)}
+.lnk{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;font-weight:700;font-size:14px;color:var(--mute);text-decoration:none;background:none;border:0;cursor:pointer}
+.lnk{white-space:nowrap}
+.lnk:hover{color:var(--ink);background:#f3f3f7}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:14px;border:2px solid var(--accent);background:var(--accent);color:#fff;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(60,82,201,.28)}
-.btn[disabled]{opacity:.6;cursor:wait;transform:none;box-shadow:none}
-.btn--sm{min-height:40px;padding:0 16px;font-size:14px;border-radius:11px}
-.btn--out{background:#fff;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 28px;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:#fff;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;transition:opacity .15s}
+.btn:hover{opacity:.86}
+.btn[disabled]{opacity:.5;cursor:wait}
 
 .demo{background:var(--yellow);color:var(--ink);font-size:14px;font-weight:600;text-align:center;padding:9px 16px}
-main{padding-block:28px 64px}
-.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+main{padding-block:30px 72px}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:28px;padding:28px}
 
 /* вход */
 .login{max-width:460px;margin:6vh auto 0}
 .login h1{font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.02em}
 .login p.sub{color:var(--mute);margin-top:10px}
-.field{display:block;margin-top:18px}
-.field input{width:100%;min-height:54px;border:2px solid var(--line);border-radius:14px;padding:0 16px;background:#fff;font-size:17px}
-.field input:focus{border-color:var(--accent);outline:none}
-.field input.code{font-size:28px;letter-spacing:.35em;text-align:center;font-weight:800}
+.field{display:block;margin-top:18px;font-weight:600;font-size:14px;color:var(--mute)}
+.field input{display:block;width:100%;margin-top:6px;min-height:54px;border:1.5px solid var(--line);border-radius:999px;padding:0 22px;background:#fff;font-size:17px;color:var(--ink)}
+.field input:focus{border-color:var(--ink);outline:none}
+.field input.code{font-size:28px;letter-spacing:.35em;text-align:center;font-weight:800;padding-left:calc(22px + .35em)}
 .login .btn{width:100%;margin-top:16px}
-.msg{min-height:22px;margin-top:12px;font-size:14px;color:var(--live);font-weight:600}
-.msg.ok{color:var(--ok)}
+.msg{min-height:22px;margin-top:12px;font-size:14px;color:var(--err);font-weight:600}
+.msg.ok{color:var(--ok-ink)}
 .small{font-size:14px;color:var(--mute);margin-top:14px}
-.small a,.small button{color:var(--accent);font-weight:700}
+.small a,.small button{color:var(--ink);font-weight:700}
 .small button{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
 
 /* шапка курса */
-.hello h1{font-size:clamp(26px,5vw,36px);line-height:1.1;font-weight:800;letter-spacing:-.025em}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--mute)}
-.chip.t{background:var(--rose);border-color:var(--rose);color:#8d2d52}
-.next{margin-top:22px;display:grid;gap:6px;background:var(--accent);color:#fff;border:0}
-.next .k{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
-.next h2{font-size:22px;line-height:1.2;font-weight:800}
-.next .when{opacity:.95}
-.next .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:10px}
-.next .btn{background:#fff;color:var(--accent);border-color:#fff}
-.next .btn.off{background:rgba(255,255,255,.18);border-color:transparent;color:rgba(255,255,255,.85);cursor:not-allowed;box-shadow:none;transform:none}
-.prog{margin-top:20px;display:flex;align-items:center;gap:14px;font-size:14px;font-weight:700;color:var(--mute)}
-.bar2{flex:1;height:10px;border-radius:99px;background:#e4e6f6;overflow:hidden}
-.bar2 i{display:block;height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .4s}
-h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
+.hello h1{font-size:clamp(28px,5vw,38px);line-height:1.1;font-weight:800;letter-spacing:-.025em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;padding:5px 14px;border-radius:999px;font-size:13px;font-weight:700;background:#fff;border:1.5px solid var(--line);color:var(--mute)}
+.next{margin-top:24px;display:grid;gap:4px;border:2px solid var(--pink);background:var(--pink-bg)}
+.next .k{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pink-ink)}
+.next h2{font-size:22px;line-height:1.2;font-weight:800;letter-spacing:-.01em}
+.next .when{color:var(--ink)}
+.next .zoom{margin-top:6px;font-size:14px;color:var(--mute);font-weight:600}
+.prog{margin-top:24px;display:flex;align-items:center;gap:14px;font-size:14px;font-weight:700;color:var(--mute)}
+.bar2{flex:1;height:10px;border-radius:999px;background:#efeff4;overflow:hidden}
+.bar2 i{display:block;height:100%;width:0;background:var(--ink);border-radius:999px;transition:width .4s}
+h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:32px 0 14px}
 
 /* занятия */
-.list{display:grid;gap:12px}
-.it{display:grid;grid-template-columns:46px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
-.it .no{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:800;font-size:17px}
-.it.live .no{background:var(--live)}
-.it.done .no{background:var(--ok)}
+.list{display:grid;gap:14px}
+.it{display:grid;grid-template-columns:44px 1fr;gap:16px;background:#fff;border:1.5px solid var(--line);border-radius:28px;padding:22px}
+.it.live{border-color:var(--pink);border-width:2px;padding:21.5px}
+.it .no{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;background:#fff;color:var(--ink);font-weight:800;font-size:16px}
+.it .bd{min-width:0}
 .it .top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
-.it .num{font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
-.it h3{font-size:18px;line-height:1.25;font-weight:800;letter-spacing:-.01em}
-.badge{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:99px;background:#e9ecff;color:var(--accent)}
-.badge.live{background:#ffe0ec;color:var(--live)}
-.pts{margin-top:8px;color:var(--mute);font-size:14.5px;display:grid;gap:3px}
-.pts li{padding-left:16px;position:relative}.pts li::before{content:"";position:absolute;left:3px;top:.62em;width:5px;height:5px;border-radius:50%;background:#b9bfe8}
-.rows{display:grid;gap:8px;margin-top:14px}
-.r{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 12px;border-radius:14px;background:var(--band)}
-.r .l{font-weight:700;font-size:14px;flex:1 1 220px}
+.it .num{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.it h3{font-size:19px;line-height:1.25;font-weight:800;letter-spacing:-.01em;margin-top:2px}
+.badge{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 11px;border-radius:999px;border:1.5px solid var(--line);color:var(--mute);background:#fff}
+.badge.live{border-color:var(--pink);color:var(--pink-ink);background:var(--pink-bg)}
+.pill-ok{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;padding:3px 12px;border-radius:999px;background:var(--ok-bg);border:1.5px solid var(--ok-line);color:var(--ok-ink)}
+.pts{margin-top:10px;color:var(--mute);font-size:14.5px;display:grid;gap:3px}
+.pts li{padding-left:16px;position:relative}.pts li::before{content:"";position:absolute;left:3px;top:.62em;width:5px;height:5px;border-radius:50%;background:#c9c9d3}
+.lab{margin:18px 0 8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lab em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:700;color:var(--ink);background:#f3f3f7;border-radius:999px;padding:1px 10px}
+.rows{display:grid;gap:8px;margin-top:16px}
+.r{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 12px 10px 18px;border-radius:999px;background:#f6f6f9}
+.r .l{font-weight:700;font-size:14px;flex:1 1 200px;line-height:1.35}
 .r .l small{display:block;font-weight:500;color:var(--mute);font-size:13px}
-.act{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 16px;border-radius:11px;border:2px solid var(--accent);background:var(--accent);color:#fff;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
-.act.sec{background:#fff;color:var(--accent)}
-.act[aria-disabled="true"]{background:#e6e7ee;border-color:#e6e7ee;color:#9a9db2;cursor:not-allowed}
+.act{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 20px;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:#fff;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.act:hover{opacity:.86}
+.act.out{background:#fff;color:var(--ink)}
+.act.out:hover{background:#f3f3f7;opacity:1}
+.act[aria-disabled="true"]{background:#ececf1;border-color:#ececf1;color:#a2a2ae;cursor:not-allowed;opacity:1}
+.act.is-done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok-ink)}
+.act.is-done:hover{opacity:1}
 /* подсказка при наведении на закрытую кнопку */
-.act[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);white-space:nowrap;background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:7px 11px;border-radius:9px;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:5}
+.act[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);white-space:nowrap;background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:5}
 .act[data-tip]:hover::after,.act[data-tip]:focus-visible::after{opacity:1;transform:translateX(-50%)}
-.it.locked-all{background:#fafafc}
-.it.locked-all .no{background:#c9cbd9}
-.it.locked-all h3{color:#7c8099}
-.panel{margin-top:12px;border-radius:16px;overflow:hidden;background:#000;aspect-ratio:16/9;position:relative}
+.it.locked-all{background:#fcfcfd}
+.it.locked-all .no{border-color:#cfcfd8;color:#a9a9b5}
+.it.locked-all h3{color:#8b8b97}
+.panel{margin-top:12px;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:16/9;position:relative}
 .panel iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.donebar{margin-top:10px;display:flex;justify-content:flex-end}
-.tnote{margin-top:6px}
-.tnote li{padding:10px 0 10px 28px;border-top:1px solid var(--line);position:relative;font-size:15px}
+
+.mats{display:grid;gap:8px}
+a.m{display:flex;align-items:center;gap:12px;padding:11px 14px 11px 18px;border:1.5px solid var(--line);border-radius:999px;text-decoration:none;background:#fff;transition:border-color .15s}
+a.m:hover{border-color:var(--ink)}
+a.m .t{flex:1 1 auto;min-width:0;font-weight:700;font-size:14.5px;line-height:1.35}
+a.m .t small{display:block;font-weight:500;color:var(--mute);font-size:13px}
+a.m .tag{flex:none;font-size:12px;font-weight:800;color:var(--mute);background:#f3f3f7;border-radius:999px;padding:4px 11px;white-space:nowrap}
+.muted{color:var(--mute);font-size:14px;margin-top:14px}
+
+.hw{display:grid;gap:8px;counter-reset:n}
+.hw li{counter-increment:n;position:relative;padding:3px 0 3px 36px;font-size:15px;line-height:1.5}
+.hw li::before{content:counter(n);position:absolute;left:0;top:2px;width:25px;height:25px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:12px;font-weight:800;line-height:1}
+.donebar{margin-top:18px;display:flex;justify-content:flex-start}
+
+.tnote{margin-top:2px}
+.tnote li{padding:11px 0 11px 30px;border-top:1px solid var(--line);position:relative;font-size:15px}
 .tnote li:first-child{border-top:0}
-.tnote li::before{content:"✓";position:absolute;left:4px;top:10px;color:var(--ok);font-weight:800}
-.help{margin-top:26px;text-align:center;color:var(--mute);font-size:14px}
-.help a{color:var(--accent);font-weight:700}
+.tnote li::before{content:"✓";position:absolute;left:5px;top:11px;color:var(--ink);font-weight:800}
+.help{margin-top:28px;text-align:center;color:var(--mute);font-size:14px}
+.help a{color:var(--ink);font-weight:700}
 .load{padding:80px 0;text-align:center;color:var(--mute)}
 
 @media (max-width:560px){
- .wrap{width:min(860px,100% - 24px)}
- .card{padding:20px;border-radius:18px}
- .it{grid-template-columns:1fr;gap:10px;padding:16px}
- .it .no{width:40px;height:40px;border-radius:12px;font-size:15px}
+ .wrap{width:min(820px,100% - 24px)}
+ .card{padding:22px;border-radius:24px}
+ .it{grid-template-columns:34px 1fr;gap:12px;padding:16px;border-radius:24px}
+ .it.live{padding:15.5px}
+ .it .no{width:34px;height:34px;font-size:14px}
+ .it h3{font-size:17.5px}
  .logo{font-size:15px}
- .act{flex:1 1 100%;justify-content:center}
- .act[data-tip]::after{white-space:normal;width:max-content;max-width:240px;text-align:center}
- .lnk{padding:0 8px}
+ .r{border-radius:24px;padding:12px 14px}
+ .r .act{flex:1 1 100%}
+ a.m{border-radius:22px;padding:11px 14px;flex-wrap:wrap;gap:6px 12px}
+ a.m .t{flex:1 1 100%}
+ .act[data-tip]::after{white-space:normal;width:max-content;max-width:230px;text-align:center;border-radius:16px}
+ .lnk{padding:0 10px}
+}
+@media (max-width:420px){
+ .lnk .x{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -127,12 +152,12 @@ h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
  <div class="wrap bar">
   <a class="logo" href="../">Easy<span>TOPIK</span> с Айс</a>
   <nav aria-label="Кабинет">
-   <a class="lnk" id="vocab" href="/topik-vocab" hidden>Словарь-тренажёр</a>
+   <a class="lnk" id="vocab" href="/topik-vocab" hidden>Словарь<span class="x">-тренажёр</span></a>
    <button class="lnk" id="logout" type="button" hidden>Выйти</button>
   </nav>
  </div>
 </header>
-<div class="demo" id="demo-bar" hidden>Это демонстрация: так ученик видит курс. Даты и видео примерные, настоящих записей здесь нет.</div>
+<div class="demo" id="demo-bar" hidden>Это демонстрация: так ученик видит курс 20 февраля 2027. Видео здесь временные, настоящих записей пока нет.</div>
 
 <main class="wrap">
 
@@ -221,21 +246,38 @@ h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
     return "через " + d + (m === 1 && h !== 11 ? " день" : (m >= 2 && m <= 4 && (h < 12 || h > 14)) ? " дня" : " дней");
   }
 
-  // ---------- отметки «пройдено» (хранятся в этом браузере) ----------
-  function doneKey() { return "tc-done:" + (state && state.user ? state.user.email : "demo"); }
-  function getDone() { try { return JSON.parse(localStorage.getItem(doneKey()) || "{}"); } catch (e) { return {}; } }
-  function setDone(id, v) { var d = getDone(); if (v) d[id] = 1; else delete d[id]; try { localStorage.setItem(doneKey(), JSON.stringify(d)); } catch (e) {} }
+  // ---------- отметки «пройдено» ----------
+  // у учеников хранятся на сервере (видны на всех устройствах), в демо только в этом браузере
+  var doneSet = {};
+  function localKey() { return "tc-done:demo"; }
+  function loadDone(d) {
+    doneSet = {};
+    if (d.demo) { try { var o = JSON.parse(localStorage.getItem(localKey()) || "{}"); for (var k in o) doneSet[k] = 1; } catch (e) {} }
+    else (d.done || []).forEach(function (id) { doneSet[id] = 1; });
+  }
+  function saveDone(id, v) {
+    if (v) doneSet[id] = 1; else delete doneSet[id];
+    if (state && state.demo) { try { localStorage.setItem(localKey(), JSON.stringify(doneSet)); } catch (e) {} return Promise.resolve(); }
+    return api("/api/cabinet/done", { id: id, done: v }).then(function (j) {
+      if (j.ok) { doneSet = {}; j.done.forEach(function (x) { doneSet[x] = 1; }); }
+    }).catch(function () {});
+  }
 
   // ---------- отрисовка ----------
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function hoursText(h) {
+    if (!h) return "";
+    if (h < 1) return "≈ " + Math.round(h * 60) + " мин";
+    return "≈ " + String(h).replace(".", ",") + " ч";
+  }
 
   function nextLive(items) {
     var n = now(), best = null;
     items.forEach(function (it) {
       if (!it.live) return;
       var end = new Date(it.live.at).getTime() + it.live.mins * 60000;
-      if (end + 2 * 36e5 < n) return;
+      if (end < n) return;
       if (!best || new Date(it.live.at) < new Date(best.live.at)) best = it;
     });
     return best;
@@ -247,36 +289,20 @@ h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
     var w = whenText(it.live.at);
     box.hidden = false;
     box.innerHTML = '<span class="k">Ближайший эфир</span><h2>' + esc(it.num) + ": " + esc(it.title) + '</h2>' +
-      '<p class="when">' + esc(w.main) + (w.mine ? " (" + esc(w.mine) + ")" : "") + " · " + inDays(it.live.at) + '</p>';
-    var row = el("div", "row");
-    if (it.live.zoom) {
-      var a = el("a", "btn btn--sm", "Подключиться в Zoom"); a.href = it.live.zoom; a.target = "_blank"; a.rel = "noopener";
-      row.appendChild(a);
-    } else if (it.live.joinOpen) {
-      row.appendChild(el("span", "when", "Эфир идёт. Ссылку на Zoom пришлю в Telegram."));
-    } else {
-      var b = el("span", "btn btn--sm off", "Кнопка Zoom откроется за 30 минут до эфира");
-      row.appendChild(b);
-    }
-    box.appendChild(row);
+      '<p class="when">' + esc(w.main) + (w.mine ? " (" + esc(w.mine) + ")" : "") + " · " + inDays(it.live.at) + '</p>' +
+      '<p class="zoom">Ссылка на Zoom придёт вам на почту.</p>';
   }
 
   function liveRow(it) {
     var w = whenText(it.live.at);
     var r = el("div", "r");
-    var l = el("div", "l", (it.live.ended ? "Эфир прошёл: " : "Живой эфир: ") + esc(w.main) + (w.mine ? "<small>" + esc(w.mine) + "</small>" : ""));
-    r.appendChild(l);
-    if (!it.live.ended) {
-      var a;
-      if (it.live.zoom) { a = el("a", "act", "Подключиться"); a.href = it.live.zoom; a.target = "_blank"; a.rel = "noopener"; }
-      else if (it.live.joinOpen) { a = el("span", "act sec", "Ссылку пришлю в Telegram"); }
-      else { a = el("button", "act", "Zoom"); a.type = "button"; a.setAttribute("aria-disabled", "true"); a.setAttribute("data-tip", "Кнопка откроется за 30 минут до эфира"); a.addEventListener("click", function (e) { e.preventDefault(); }); }
-      r.appendChild(a);
-    }
+    var tail = it.live.ended ? "" : "Ссылка на Zoom придёт вам на почту";
+    var small = [w.mine, tail].filter(Boolean).join(" · ");
+    r.appendChild(el("div", "l", (it.live.ended ? "Эфир прошёл: " : "Живой эфир: ") + esc(w.main) + (small ? "<small>" + esc(small) + "</small>" : "")));
     return r;
   }
 
-  function recRow(it, panelHolder, onToggle) {
+  function recRow(it, onToggle) {
     var rec = it.record, r = el("div", "r");
     if (rec.open) {
       r.appendChild(el("div", "l", "Запись урока"));
@@ -296,20 +322,63 @@ h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
     return r;
   }
 
+  var KIND = { file: "PDF", notion: "Notion", official: "topik.go.kr", site: "сайт" };
+  function matsBlock(it) {
+    var wrap = el("div", "");
+    wrap.appendChild(el("div", "lab", "Материалы"));
+    var box = el("div", "mats");
+    it.materials.forEach(function (m) {
+      var a = el("a", "m");
+      a.href = m.url;
+      if (m.kind === "file") { a.setAttribute("download", ""); }
+      else if (m.kind !== "site") { a.target = "_blank"; a.rel = "noopener noreferrer"; }
+      a.innerHTML = '<span class="t">' + esc(m.t) + (m.note ? "<small>" + esc(m.note) + "</small>" : "") + '</span><span class="tag">' + (KIND[m.kind] || "") + (m.kind === "file" ? " ↓" : " ↗") + "</span>";
+      box.appendChild(a);
+    });
+    wrap.appendChild(box);
+    return wrap;
+  }
+
+  function hwBlock(it) {
+    var wrap = el("div", "");
+    var lab = el("div", "lab", "Домашнее задание" + (it.homework.hours ? " <em>" + esc(hoursText(it.homework.hours)) + "</em>" : ""));
+    wrap.appendChild(lab);
+    var ol = el("ol", "hw");
+    it.homework.list.forEach(function (t) { ol.appendChild(el("li", "", esc(t))); });
+    wrap.appendChild(ol);
+    return wrap;
+  }
+
+  function lockedLine(it) {
+    var m = it.materialsOpens, h = it.homeworkOpens;
+    if (!m && !h) return null;
+    var f = function (iso) { return fShort.format(new Date(iso)); };
+    var t;
+    if (m && h && f(m) === f(h)) t = "Материалы и домашнее задание откроются " + f(m);
+    else t = [m ? "Материалы откроются " + f(m) : "", h ? "домашнее задание откроется " + f(h) : ""].filter(Boolean).join(", ");
+    t = t.charAt(0).toUpperCase() + t.slice(1);
+    return el("p", "muted", esc(t));
+  }
+
+  // в кружке номер урока; у встреч «В1» и «В2»
+  function circleText(it, i) {
+    var m = /^Урок (\d+)/.exec(it.num); if (m) return m[1];
+    m = /^Встреча (\d+)/.exec(it.num); if (m) return "В" + m[1];
+    return String(i + 1);
+  }
+
   function renderItems(items) {
     var list = $("list"); list.innerHTML = "";
-    var done = getDone();
-    var doneCount = 0;
     items.forEach(function (it, i) {
-      var isDone = !!done[it.id] && it.record && it.record.open;
-      if (isDone) doneCount++;
-      var li = el("li", "it" + (it.type === "live" ? " live" : "") + (isDone ? " done" : "") + (it.record && !it.record.open && !(it.live && !it.live.ended) ? " locked-all" : ""));
+      var recOpen = it.record && it.record.open;
+      var li = el("li", "it" + (it.type === "live" ? " live" : "") + (it.record && !recOpen && !(it.live && !it.live.ended) && !it.materials ? " locked-all" : ""));
       li.id = "it-" + it.id;
-      li.appendChild(el("div", "no", isDone ? "✓" : String(i + 1)));
+      li.appendChild(el("div", "no", circleText(it, i)));
       var body = el("div", "bd");
       var top = el("div", "top");
       top.appendChild(el("span", "num", esc(it.num)));
       top.appendChild(el("span", "badge" + (it.type === "live" ? " live" : ""), it.type === "live" ? "Живой эфир" : "Запись"));
+      var pill = el("span", "pill-ok", "✓ Пройдено"); pill.hidden = true; top.appendChild(pill);
       body.appendChild(top);
       body.appendChild(el("h3", "", esc(it.title)));
       var ul = el("ul", "pts"); it.points.forEach(function (p) { ul.appendChild(el("li", "", esc(p))); });
@@ -317,9 +386,9 @@ h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
 
       var rows = el("div", "rows");
       if (it.live) rows.appendChild(liveRow(it));
-      var panel = null, donebar = null;
+      var panel = null;
       if (it.record) {
-        rows.appendChild(recRow(it, null, function (btn) {
+        rows.appendChild(recRow(it, function (btn) {
           if (!panel) {
             panel = el("div", "panel");
             var fr = document.createElement("iframe");
@@ -328,28 +397,48 @@ h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
             fr.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
             fr.loading = "lazy";
             panel.appendChild(fr);
-            donebar = el("div", "donebar");
-            var db = el("button", "act sec", getDone()[it.id] ? "Снять отметку «пройдено»" : "Отметить пройденным"); db.type = "button";
-            db.addEventListener("click", function () { setDone(it.id, !getDone()[it.id]); renderItems(state.items); updateProgress(state.items); });
-            donebar.appendChild(db);
-            rows.appendChild(panel); rows.appendChild(donebar);
+            rows.insertBefore(panel, btn.parentNode.nextSibling);
             btn.textContent = "Скрыть видео"; btn.setAttribute("aria-expanded", "true");
           } else {
-            var hide = !panel.hidden; panel.hidden = hide; donebar.hidden = hide;
+            var hide = !panel.hidden; panel.hidden = hide;
             btn.textContent = hide ? "▶ Смотреть" : "Скрыть видео"; btn.setAttribute("aria-expanded", hide ? "false" : "true");
           }
         }));
       }
       body.appendChild(rows);
+      if (it.materials) body.appendChild(matsBlock(it));
+      if (it.homework) body.appendChild(hwBlock(it));
+      var lock = lockedLine(it); if (lock) body.appendChild(lock);
+
+      if (recOpen) {
+        var bar = el("div", "donebar");
+        var db = el("button", "act out", ""); db.type = "button";
+        var paint = function () {
+          var d = !!doneSet[it.id];
+          pill.hidden = !d;
+          db.textContent = d ? "✓ Пройдено" : "Отметить пройденным";
+          db.className = "act " + (d ? "is-done" : "out");
+          db.setAttribute("aria-pressed", d ? "true" : "false");
+          db.title = d ? "Нажми, чтобы снять отметку" : "";
+        };
+        db.addEventListener("click", function () {
+          var v = !doneSet[it.id];
+          db.disabled = true;
+          saveDone(it.id, v).then(function () { db.disabled = false; paint(); updateProgress(items); });
+        });
+        paint();
+        bar.appendChild(db);
+        body.appendChild(bar);
+      }
       li.appendChild(body);
       list.appendChild(li);
     });
-    updateProgress(items, doneCount);
+    updateProgress(items);
   }
 
-  function updateProgress(items, cnt) {
-    if (cnt == null) { var d = getDone(); cnt = items.filter(function (i) { return d[i.id] && i.record && i.record.open; }).length; }
+  function updateProgress(items) {
     var total = items.filter(function (i) { return i.record; }).length;
+    var cnt = items.filter(function (i) { return doneSet[i.id] && i.record && i.record.open; }).length;
     $("prog-t").textContent = "Пройдено " + cnt + " из " + total;
     $("prog-b").style.width = (total ? Math.round(cnt / total * 100) : 0) + "%";
   }
@@ -357,10 +446,10 @@ h2.sec{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
   function renderCourse(d) {
     state = d;
     offset = new Date(d.now).getTime() - Date.now();
+    loadDone(d);
     $("hi").textContent = "Привет" + (d.user.name ? ", " + d.user.name : "") + "!";
     var chips = $("chips"); chips.innerHTML = "";
-    chips.appendChild(el("span", "chip t", "Тариф: " + esc(d.user.tariff)));
-    if (d.user.until) chips.appendChild(el("span", "chip", "Доступ до " + esc(new Intl.DateTimeFormat("ru", { day: "numeric", month: "long", year: "numeric" }).format(new Date(d.user.until + "T00:00:00")))));
+    chips.appendChild(el("span", "chip", "Тариф: " + esc(d.user.tariff)));
     chips.appendChild(el("span", "chip", "Курс подготовки к TOPIK II"));
     renderNext(d.items);
     renderItems(d.items);
